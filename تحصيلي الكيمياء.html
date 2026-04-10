@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تحصيلي كيمياء - الأستاذ عبدالله المرواني</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
     
     <script>
@@ -21,17 +18,21 @@
                     },
                     colors: {
                         app: {
-                            bg: '#F5F5F7',
+                            bg: '#f8fafc',
                             card: '#FFFFFF',
-                            text: '#1D1D1F',
-                            muted: '#86868B',
-                            primary: '#007AFF',
-                            success: '#34C759',
+                            text: '#0f172a',
+                            muted: '#64748b',
+                            primary: '#3b82f6',
+                            success: '#22c55e',
+                            accent: '#8b5cf6'
                         }
                     },
                     boxShadow: {
-                        'apple': '0 4px 24px rgba(0, 0, 0, 0.06)',
-                        'apple-hover': '0 12px 32px rgba(0, 0, 0, 0.1)',
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                        'card': '0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01)',
+                        'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'neon': '0 0 15px rgba(139, 92, 246, 0.5)',
+                        'gold': '0 0 25px rgba(234, 179, 8, 0.4)',
                     }
                 }
             }
@@ -40,29 +41,49 @@
 
     <style>
         body {
-            background-color: #F5F5F7;
-            color: #1D1D1F;
+            background-color: #f8fafc;
+            color: #0f172a;
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
+        /* Animated Title Gradient */
         .hero-gradient {
-            background: linear-gradient(135deg, #007AFF 0%, #34C759 100%);
+            background: linear-gradient(270deg, #3b82f6, #8b5cf6, #22c55e, #3b82f6);
+            background-size: 300% 300%;
+            animation: gradientShift 8s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
+        /* Card Styles & Animations */
         .course-card {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-radius: 24px;
-            box-shadow: var(--tw-shadow-apple);
+            box-shadow: var(--tw-shadow-card);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.5);
             overflow: hidden;
+            animation: fadeInUp 0.8s ease-out backwards;
         }
         .course-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--tw-shadow-apple-hover);
+            transform: translateY(-10px);
+            box-shadow: var(--tw-shadow-card-hover);
+            border-color: rgba(139, 92, 246, 0.3);
         }
 
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Action Buttons */
         .btn-action {
             display: flex;
             align-items: center;
@@ -71,162 +92,232 @@
             width: 100%;
             padding: 12px 16px;
             border-radius: 14px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.95rem;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
             border: none;
+            position: relative;
+            overflow: hidden;
         }
-        .btn-map { background-color: #F2F2F7; color: #007AFF; }
-        .btn-map:hover { background-color: #E5E5EA; transform: scale(1.02); }
+        .btn-map { background-color: #f1f5f9; color: #3b82f6; border: 1px solid transparent; }
+        .btn-map:hover { background-color: #e2e8f0; border-color: #cbd5e1; transform: scale(1.02); }
         
-        .btn-video { background-color: #E8F5E9; color: #34C759; }
-        .btn-video:hover { background-color: #C8E6C9; transform: scale(1.02); }
+        .btn-video { background-color: #f0fdf4; color: #16a34a; border: 1px solid transparent; }
+        .btn-video:hover { background-color: #dcfce7; border-color: #bbf7d0; transform: scale(1.02); }
 
-        /* AI Button Styles */
+        /* AI Glowing Button */
         .btn-ai {
             background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
             color: #ffffff;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            animation: pulseGlow 2s infinite;
         }
         .btn-ai:hover {
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
             transform: scale(1.02);
+            animation: none;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(139, 92, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
         }
 
         .icon-box {
-            width: 56px; height: 56px; border-radius: 18px;
+            width: 60px; height: 60px; border-radius: 20px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 24px; margin-bottom: 16px;
+            font-size: 26px; margin-bottom: 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .course-card:hover .icon-box {
+            transform: scale(1.1) rotate(5deg);
         }
 
+        /* Glassmorphism Navigation */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            box-shadow: var(--tw-shadow-glass);
         }
 
         /* Modals Animation */
         .modal-overlay {
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+            background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px);
         }
         .modal-overlay.show {
             opacity: 1; pointer-events: auto;
         }
+        .modal-content {
+            transform: scale(0.95) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .modal-overlay.show .modal-content {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
 
         .section-badge {
-            display: inline-block; padding: 6px 16px; border-radius: 20px;
-            font-size: 0.85rem; font-weight: 800; margin-bottom: 12px;
+            display: inline-block; padding: 8px 20px; border-radius: 30px;
+            font-size: 0.95rem; font-weight: 900; margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5);
         }
         
-        .iframe-container iframe {
-            transition: opacity 0.3s ease;
-        }
-
         #galleryImage {
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+            transform-origin: center center;
+            touch-action: none;
         }
 
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #F5F5F7; }
-        ::-webkit-scrollbar-thumb { background: #C7C7CC; border-radius: 5px; }
-        ::-webkit-scrollbar-thumb:hover { background: #AEAEB2; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .progress-bar-fill { transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .quiz-btn-advanced { transition: all 0.2s ease; border-width: 2px; }
+        .quiz-btn-advanced:hover:not(:disabled) { 
+            transform: translateX(-6px); 
+            background-color: #f5f3ff; 
+            border-color: #c4b5fd; 
+            box-shadow: -4px 4px 10px rgba(139, 92, 246, 0.1);
+        }
+        
+        .chat-bubble {
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
-<body class="antialiased pb-20">
+<body class="antialiased pb-20 w-full overflow-x-hidden">
 
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full z-40 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="font-heading font-black text-xl text-app-text flex items-center gap-2">
-                    <div class="bg-app-primary text-white w-8 h-8 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-flask"></i>
+            <div class="flex items-center justify-between h-20">
+                <div class="font-heading font-black text-2xl text-app-text flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-lg">
+                        <i class="fa-solid fa-flask text-xl"></i>
                     </div>
-                    تحصيلي كيمياء
+                    <span class="truncate tracking-tight">تحصيلي كيمياء</span>
                 </div>
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="#chem1" class="text-app-muted hover:text-app-primary font-bold transition">كيمياء 1</a>
-                    <a href="#chem21" class="text-app-muted hover:text-app-primary font-bold transition">كيمياء 2-1</a>
-                    <a href="#chem22" class="text-app-muted hover:text-app-primary font-bold transition">كيمياء 2-2</a>
-                    <a href="#chem3" class="text-app-muted hover:text-app-primary font-bold transition">كيمياء 3</a>
+                <div class="hidden lg:flex items-center gap-6 font-bold text-slate-600">
+                    <a href="#chem1" class="hover:text-blue-500 transition border-b-2 border-transparent hover:border-blue-500 pb-1">كيمياء 1</a>
+                    <a href="#chem21" class="hover:text-teal-500 transition border-b-2 border-transparent hover:border-teal-500 pb-1">كيمياء 2-1</a>
+                    <a href="#chem22" class="hover:text-purple-500 transition border-b-2 border-transparent hover:border-purple-500 pb-1">كيمياء 2-2</a>
+                    <a href="#chem3" class="hover:text-orange-500 transition border-b-2 border-transparent hover:border-orange-500 pb-1">كيمياء 3</a>
+                    <a href="#final-test" class="text-yellow-600 hover:text-yellow-500 transition border-b-2 border-transparent hover:border-yellow-500 pb-1 flex items-center gap-1">
+                        <i class="fa-solid fa-crown text-sm"></i> الاختبار الشامل
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="pt-32 pb-16 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <span class="inline-block bg-blue-100 text-app-primary px-4 py-1.5 rounded-full text-sm font-bold mb-6">
-                الاستعداد للاختبارات التحصيلية
+    <header class="pt-36 md:pt-44 pb-12 md:pb-20 px-4 text-center relative">
+        <div class="absolute inset-0 top-0 bg-gradient-to-b from-blue-50 to-transparent -z-10 h-96 opacity-60"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="inline-block bg-white text-app-primary px-6 py-2 rounded-full text-sm md:text-base font-black mb-6 shadow-sm border border-blue-100 uppercase tracking-wide">
+                الاستعداد الذهبي للاختبارات التحصيلية
             </span>
-            <h1 class="text-5xl md:text-7xl font-heading font-black mb-6 text-transparent bg-clip-text hero-gradient pb-2">
-                { الكيمياء أصبحت اسهل }
+            <h1 class="text-5xl sm:text-6xl md:text-8xl font-heading font-black mb-8 text-transparent bg-clip-text hero-gradient pb-2 leading-tight">
+                { الكيمياء أصبحت أسهل }
             </h1>
-            <p class="text-xl md:text-2xl text-app-muted leading-relaxed font-semibold mb-10 max-w-3xl mx-auto">
-                أبنائنا الطلاب هذا العمل نضعه بين ايديكم فيما يخص مادة الكيمياء وذلك للارتقاء إن شاء الله للقمة وبداية القمة الاختبارات التحصيلية. نعرج فيه على كل ما درسته في المرحلة الثانوية.
+            <p class="text-lg sm:text-xl md:text-2xl text-slate-600 leading-relaxed font-bold mb-10 max-w-3xl mx-auto px-2">
+                أبنائنا الطلاب، نضع هذا العمل بين أيديكم للارتقاء نحو القمة في الاختبارات التحصيلية. نُعرّج فيه على كل ما درستموه في المرحلة الثانوية بأسلوب ذكي ومبسط.
             </p>
         </div>
     </header>
 
-    <!-- Instructions -->
-    <section class="max-w-4xl mx-auto px-4 mb-24">
-        <div class="bg-white rounded-[2rem] p-8 md:p-10 shadow-apple border border-gray-100">
-            <div class="flex items-center gap-4 mb-8">
-                <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-500 flex items-center justify-center text-2xl">
+    <section class="max-w-4xl mx-auto px-4 mb-16 md:mb-24">
+        <div class="bg-white/80 backdrop-blur-xl rounded-[2rem] p-6 md:p-10 shadow-card border border-white relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-orange-100 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+            
+            <div class="flex items-center gap-4 mb-10 relative z-10">
+                <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 text-white flex items-center justify-center text-2xl md:text-3xl shrink-0 shadow-lg">
                     <i class="fa-solid fa-lightbulb"></i>
                 </div>
-                <h2 class="text-3xl font-heading font-black text-app-text">تعليمات</h2>
+                <h2 class="text-3xl md:text-4xl font-heading font-black text-app-text">طريقة المذاكرة الذكية</h2>
             </div>
             
-            <div class="space-y-6 text-lg text-gray-600 font-semibold mb-10">
-                <div class="flex items-start gap-4">
-                    <div class="w-8 h-8 rounded-full bg-green-100 text-app-success flex items-center justify-center shrink-0 mt-1">1</div>
-                    <p>ابدأ في خرائط المفاهيم لكل فصل. لاسترجاع معلوماتك فيما درست في المرحلة الثانوية.</p>
+            <div class="space-y-6 text-base md:text-xl text-slate-700 font-bold mb-12 relative z-10">
+                <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+                    <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1 border-2 border-green-200 shadow-sm">1</div>
+                    <p class="pt-1">ابدأ في <span class="text-green-600">خرائط المفاهيم</span> لكل فصل لاسترجاع معلوماتك وتثبيت القواعد الأساسية بصرياً.</p>
                 </div>
-                <div class="flex items-start gap-4">
-                    <div class="w-8 h-8 rounded-full bg-green-100 text-app-success flex items-center justify-center shrink-0 mt-1">2</div>
-                    <p>أدخل على رابط كل فصل وفيه شروحات لتجميعات من التحصيلي تختص في نفس الفصل. وقد قمت بشرح تقريباً ٧٠٠ سؤال.</p>
+                <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mt-1 border-2 border-blue-200 shadow-sm">2</div>
+                    <p class="pt-1">شاهد <span class="text-blue-600">الشروحات المرئية</span> للتجميعات (شرحنا تقريباً ٧٠٠ سؤال بأدق التفاصيل لضمان الفهم).</p>
                 </div>
-                <div class="flex items-start gap-4">
-                    <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-wand-magic-sparkles text-sm"></i></div>
-                    <p>استخدم زر <span class="text-purple-600">✨ تدريب ذكي</span> لاختبار فهمك بسؤال جديد من توليد الذكاء الاصطناعي لكل فصل.</p>
+                <div class="flex items-start gap-4 p-4 rounded-2xl bg-purple-50/50 hover:bg-purple-50 transition border border-purple-100/80">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 mt-1 border-2 border-purple-200 shadow-neon">
+                        <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+                    </div>
+                    <p class="pt-1">استخدم زر <span class="text-purple-600 font-black">✨ تدريب ذكي</span> لاختبار فهمك بأسئلة مولدة لحظياً عبر الذكاء الاصطناعي لكل فصل.</p>
                 </div>
             </div>
             
-            <div class="bg-gray-50 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between border border-gray-100">
-                <div class="text-center md:text-right mb-4 md:mb-0">
-                    <p class="text-app-muted font-bold text-sm mb-1 uppercase tracking-wider">إعداد وتقديم الأستاذ</p>
-                    <p class="text-2xl font-black text-app-text">عبدالله المرواني</p>
+            <div class="bg-slate-900 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between shadow-xl relative overflow-hidden z-10">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-50"></div>
+                <div class="text-center md:text-right mb-6 md:mb-0 relative z-10">
+                    <p class="text-slate-400 font-bold text-sm md:text-base mb-1 uppercase tracking-widest">إعداد وتقديم الأستاذ</p>
+                    <p class="text-2xl md:text-3xl font-black text-white">عبدالله المرواني</p>
                 </div>
-                <div class="bg-white px-6 py-3 rounded-xl shadow-sm font-black text-app-primary text-xl">
-                    وفقكم الله <i class="fa-solid fa-heart text-red-500 ml-2"></i>
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 rounded-xl font-black text-white text-xl md:text-2xl text-center w-full md:w-auto relative z-10 flex items-center justify-center gap-3 shadow-lg">
+                    وفقكم الله <i class="fa-solid fa-heart text-red-500 animate-pulse"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 md:space-y-32">
 
-        <!-- ================= كيمياء 1 ================= -->
-        <section id="chem1" class="scroll-mt-24">
-            <div class="mb-10 text-center md:text-right">
-                <span class="section-badge bg-blue-100 text-app-primary">الصف الأول الثانوي</span>
-                <h2 class="text-4xl md:text-5xl font-heading font-black text-app-text mt-2">كيمياء ١</h2>
+        <section class="max-w-4xl mx-auto mt-8 mb-16 md:mb-24">
+            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-[2rem] p-6 md:p-10 shadow-card border border-indigo-100 relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-64 h-64 bg-purple-200 rounded-full blur-3xl opacity-40 mix-blend-multiply pointer-events-none"></div>
+                
+                <h3 class="text-2xl md:text-3xl font-black text-indigo-950 mb-6 flex items-center relative z-10">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mr-0 ml-4 text-purple-600">
+                        <i class="fa-solid fa-robot text-xl"></i>
+                    </div>
+                    اسأل المساعد الذكي المباشر
+                </h3>
+                <div class="flex flex-col sm:flex-row gap-3 mb-6 relative z-10">
+                    <input type="text" id="studentQuestion" placeholder="عن ماذا تبحث في الكيمياء؟ اطرح سؤالك هنا..." class="flex-1 bg-white border border-indigo-200 rounded-2xl px-5 py-4 md:py-5 focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-200/50 transition-all text-slate-800 font-bold text-lg w-full shadow-sm placeholder:font-semibold">
+                    <button onclick="askAssistant()" class="btn-ai px-8 py-4 md:py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3 w-full sm:w-auto hover:-translate-y-1 transition-transform">
+                        <i class="fa-solid fa-paper-plane"></i> إرسال السؤال
+                    </button>
+                </div>
+                <div id="chatResponse" class="hidden p-6 md:p-8 rounded-2xl bg-white border border-indigo-100 text-slate-800 font-bold leading-loose text-base md:text-lg break-words shadow-sm chat-bubble relative z-10">
+                </div>
+            </div>
+        </section>
+
+        <section id="chem1" class="scroll-mt-32">
+            <div class="mb-10 md:mb-12 text-center md:text-right border-b-2 border-slate-100 pb-6">
+                <span class="section-badge bg-blue-100 text-blue-700 border border-blue-200">الصف الأول الثانوي</span>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-heading font-black text-slate-800 mt-3 tracking-tight">كيمياء ١</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-blue-50 text-app-primary"><i class="fa-solid fa-book-open"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل مقدمة في الكيمياء</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.1s;">
+                    <div class="icon-box text-blue-500"><i class="fa-solid fa-book-open"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">مقدمة في الكيمياء</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem1-ch1', 'خرائط مفاهيم - مقدمة في الكيمياء')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem1-ch1', 'مقدمة في الكيمياء')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
                         <button onclick="openVideo('13e70aJ4xuCIoI7DQOpHoRUK0Bl9Z72Yt', 'شرح تجميعات - مقدمة في الكيمياء')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                            <i class="fa-solid fa-play"></i> شرح التجميعات
                         </button>
                         <button onclick="openAITutor('مقدمة في الكيمياء')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -234,15 +325,15 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-blue-50 text-app-primary"><i class="fa-solid fa-vial"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل المادة الخواص والتغيرات</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.2s;">
+                    <div class="icon-box text-blue-500"><i class="fa-solid fa-vial"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">المادة: الخواص والتغيرات</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem1-ch2', 'خرائط مفاهيم - المادة الخواص والتغيرات')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem1-ch2', 'المادة الخواص والتغيرات')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1OGE-dsDFqdPSWgmGscBKB7ejWnEjaDjI', 'شرح تجميعات - المادة الخواص والتغيرات')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                        <button onclick="openVideo('1OGE-dsDFqdPSWgmGscBKB7ejWnEjaDjI', 'شرح تجميعات - المادة')" class="btn-action btn-video">
+                            <i class="fa-solid fa-play"></i> شرح التجميعات
                         </button>
                         <button onclick="openAITutor('المادة الخواص والتغيرات')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -250,15 +341,15 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-blue-50 text-app-primary"><i class="fa-solid fa-atom"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل تركيب الذرة</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.3s;">
+                    <div class="icon-box text-blue-500"><i class="fa-solid fa-atom"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">تركيب الذرة</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem1-ch3', 'خرائط مفاهيم - تركيب الذرة')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem1-ch3', 'تركيب الذرة')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
                         <button onclick="openVideo('1zWIpQXS82iL7lIAgEeS_EfAGB1_EmJIL', 'شرح تجميعات - تركيب الذرة')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                            <i class="fa-solid fa-play"></i> شرح التجميعات
                         </button>
                         <button onclick="openAITutor('تركيب الذرة')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -266,15 +357,15 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-blue-50 text-app-primary"><i class="fa-solid fa-flask-vial"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل التفاعلات الكيميائية</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.4s;">
+                    <div class="icon-box text-blue-500"><i class="fa-solid fa-flask-vial"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">التفاعلات الكيميائية</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem1-ch4', 'خرائط مفاهيم - التفاعلات الكيميائية')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem1-ch4', 'التفاعلات الكيميائية')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
                         <button onclick="openVideo('1GgtzYJtXm15JlouFDTSY0Vq7TjL1dgNS', 'شرح تجميعات - التفاعلات الكيميائية')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                            <i class="fa-solid fa-play"></i> شرح التجميعات
                         </button>
                         <button onclick="openAITutor('التفاعلات الكيميائية')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -282,19 +373,21 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-blue-50 text-app-primary"><i class="fa-solid fa-weight-scale"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل المول</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.5s;">
+                    <div class="icon-box text-blue-500"><i class="fa-solid fa-weight-scale"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">المول</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem1-ch5', 'خرائط مفاهيم - المول')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem1-ch5', 'المول')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1YZFQ4FRqcAZiW-YJr5Vk1jRUOZHHpqn0', 'شرح تجميعات جزء ١ - المول')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح ١
-                        </button>
-                        <button onclick="openVideo('1s2AtzFrjO2RiThEMxyEhRtFFCQFW_kJ9', 'شرح تجميعات جزء ٢ - المول')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح ٢
-                        </button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openVideo('1YZFQ4FRqcAZiW-YJr5Vk1jRUOZHHpqn0', 'شرح تجميعات جزء ١')" class="btn-action btn-video text-sm px-2">
+                                <i class="fa-solid fa-play"></i> شرح 1
+                            </button>
+                            <button onclick="openVideo('1qFCwOOjwOEqWz7DZ_f9_-5HNdZ1oM1zy', 'شرح تجميعات جزء ٢')" class="btn-action btn-video text-sm px-2">
+                                <i class="fa-solid fa-play"></i> شرح 2
+                            </button>
+                        </div>
                         <button onclick="openAITutor('المول')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
                         </button>
@@ -302,30 +395,32 @@
                 </div>
             </div>
 
-            <div class="mt-12 bg-[#F2FCEA] rounded-[2rem] p-10 text-center border border-[#E0F5D7]">
-                <h3 class="text-3xl font-black text-[#248A3D] mb-2">أحسنت</h3>
-                <p class="text-xl font-bold text-[#2EAA4B] mb-4">لقد انتهيت من منهج كيمياء ١</p>
-                <span class="inline-block bg-white text-[#248A3D] px-6 py-2 rounded-full font-bold shadow-sm">استمر • وفقك الله</span>
+            <div class="mt-12 md:mt-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-[2rem] p-8 md:p-12 text-center shadow-xl relative overflow-hidden border border-green-400">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPjwvc3ZnPg==')] opacity-30"></div>
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-3 relative z-10">ختام كيمياء ١ 🎓</h3>
+                <p class="text-lg md:text-xl font-bold text-green-100 mb-8 relative z-10">اختبر جاهزيتك وتأكد من إتقانك لجميع فصول هذا المنهج</p>
+                <button onclick="openAITutor('منهج كيمياء 1 كامل', 25, true)" class="relative z-10 inline-flex items-center justify-center gap-3 bg-white text-green-700 hover:bg-green-50 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black text-lg md:text-xl shadow-[0_10px_25px_rgba(0,0,0,0.2)] transition transform hover:-translate-y-1 hover:scale-105 w-full sm:w-auto">
+                    <i class="fa-solid fa-medal text-2xl text-yellow-500"></i> اختبار تحصيلي شامل لـ كيمياء 1 (25 سؤال)
+                </button>
             </div>
         </section>
 
-        <!-- ================= كيمياء 2-1 ================= -->
-        <section id="chem21" class="scroll-mt-24">
-            <div class="mb-10 text-center md:text-right">
-                <span class="section-badge bg-teal-100 text-teal-700">الصف الثاني ثانوي فصل دراسي اول</span>
-                <h2 class="text-4xl md:text-5xl font-heading font-black text-app-text mt-2">كيمياء ٢-١</h2>
+        <section id="chem21" class="scroll-mt-32">
+            <div class="mb-10 md:mb-12 text-center md:text-right border-b-2 border-slate-100 pb-6">
+                <span class="section-badge bg-teal-100 text-teal-700 border border-teal-200">الصف الثاني ثانوي - الفصل الأول</span>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-heading font-black text-slate-800 mt-3 tracking-tight">كيمياء ٢-١</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-teal-50 text-teal-600"><i class="fa-solid fa-table-cells"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">الجدول الدوري والتدرج</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.1s;">
+                    <div class="icon-box text-teal-600"><i class="fa-solid fa-table-cells"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">الجدول الدوري والتدرج</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem21-ch1', 'خرائط مفاهيم - الجدول الدوري')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem21-ch1', 'الجدول الدوري')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1qFCwOOjwOEqWz7DZ_f9_-5HNdZ1oM1zy', 'شرح تجميعات - الجدول الدوري')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                        <button onclick="openVideo('14cvsQqDZ3jIVuJsQCSeht9eAnHsBeUFe', 'شرح التجميعات')" class="btn-action btn-video">
+                            <i class="fa-solid fa-play"></i> شرح التجميعات
                         </button>
                         <button onclick="openAITutor('الجدول الدوري والتدرج في خواص العناصر')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -333,34 +428,36 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-teal-50 text-teal-600"><i class="fa-solid fa-bolt"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل الإلكترونات في الذرة</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.2s;">
+                    <div class="icon-box text-teal-600"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">الإلكترونات في الذرة</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem21-ch2', 'خرائط مفاهيم - الإلكترونات في الذرة')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem21-ch2', 'الإلكترونات في الذرة')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('14cvsQqDZ3jIVuJsQCSeht9eAnHsBeUFe', 'شرح تجميعات جزء ١')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح ١
-                        </button>
-                        <button onclick="openVideo('1W9XeO6l5NliXi3AY4hcYlWenQmAvfdn', 'شرح تجميعات جزء ٢')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح ٢
-                        </button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openVideo('1UOVdEfZxGQFl1h7irKXNOaZqzSOiyXE1', 'شرح 1')" class="btn-action btn-video text-sm px-2">
+                                <i class="fa-solid fa-play"></i> شرح 1
+                            </button>
+                            <button onclick="openVideo('1-xxi9fbHoAtBgu9oIYXiUqXZfh8KZZrW', 'شرح 2')" class="btn-action btn-video text-sm px-2">
+                                <i class="fa-solid fa-play"></i> شرح 2
+                            </button>
+                        </div>
                         <button onclick="openAITutor('الإلكترونات في الذرة')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
                         </button>
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-teal-50 text-teal-600"><i class="fa-solid fa-magnet"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">المركبات الأيونية والفلزات</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.3s;">
+                    <div class="icon-box text-teal-600"><i class="fa-solid fa-magnet"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">المركبات الأيونية والفلزات</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem21-ch3', 'خرائط مفاهيم - المركبات الأيونية')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem21-ch3', 'المركبات الأيونية والفلزات')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1UOVdEfZxGQFl1h7irKXNOaZqzSOiyXE1', 'شرح تجميعات - المركبات الأيونية')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                        <button onclick="openVideo('107JpvIGB6RqXsz4cBPtzgSHPHn6hvwpp', 'شرح التجميعات')" class="btn-action btn-video">
+                            <i class="fa-solid fa-play"></i> شرح التجميعات
                         </button>
                         <button onclick="openAITutor('المركبات الأيونية والفلزات')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -368,15 +465,15 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-teal-50 text-teal-600"><i class="fa-solid fa-link"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل الروابط التساهمية</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.4s;">
+                    <div class="icon-box text-teal-600"><i class="fa-solid fa-link"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">الروابط التساهمية</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem21-ch4', 'خرائط مفاهيم - الروابط التساهمية')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem21-ch4', 'الروابط التساهمية')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1-xxi9fbHoAtBgu9oIYXiUqXZfh8KZZrW', 'شرح تجميعات - الروابط التساهمية')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                        <button onclick="openVideo('1lpbNggDBq6LKuVlaSQWBxtyocF7NbD9q', 'شرح التجميعات')" class="btn-action btn-video">
+                            <i class="fa-solid fa-play"></i> شرح التجميعات
                         </button>
                         <button onclick="openAITutor('الروابط التساهمية')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -384,15 +481,15 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-teal-50 text-teal-600"><i class="fa-solid fa-icicles"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل حالات المادة</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.5s;">
+                    <div class="icon-box text-teal-600"><i class="fa-solid fa-icicles"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">حالات المادة</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem21-ch5', 'خرائط مفاهيم - حالات المادة')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem21-ch5', 'حالات المادة')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('107JpvIGB6RqXsz4cBPtzgSHPHn6hvwpp', 'شرح تجميعات - حالات المادة')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                        <button onclick="openVideo('1Dv4t9xVhUxYE0h4j3tQIaxmXkaCwyIDP', 'شرح التجميعات')" class="btn-action btn-video">
+                            <i class="fa-solid fa-play"></i> شرح التجميعات
                         </button>
                         <button onclick="openAITutor('حالات المادة')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -400,19 +497,21 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-teal-50 text-teal-600"><i class="fa-solid fa-wind"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل الغازات</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.6s;">
+                    <div class="icon-box text-teal-600"><i class="fa-solid fa-wind"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">الغازات</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem21-ch6', 'خرائط مفاهيم - الغازات')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem21-ch6', 'الغازات')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1lpbNggDBq6LKuVlaSQWBxtyocF7NbD9q', 'شرح تجميعات جزء ١')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح ١
-                        </button>
-                        <button onclick="openVideo('1oA4Yo95Z4kz3FwQ_KD2bUK7E3tURJmf9', 'شرح تجميعات جزء ٢')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح ٢
-                        </button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openVideo('1QHfGHxzLuMdcSLnsFiXE7yLkOdjtGBvl', 'شرح 1')" class="btn-action btn-video text-sm px-2">
+                                <i class="fa-solid fa-play"></i> شرح 1
+                            </button>
+                            <button onclick="openVideo('1Ql_M6eAUSyh2UkzC7BKNy4GNRS843YQC', 'شرح 2')" class="btn-action btn-video text-sm px-2">
+                                <i class="fa-solid fa-play"></i> شرح 2
+                            </button>
+                        </div>
                         <button onclick="openAITutor('الغازات')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
                         </button>
@@ -420,30 +519,32 @@
                 </div>
             </div>
             
-            <div class="mt-12 bg-teal-50 rounded-[2rem] p-10 text-center border border-teal-100">
-                <h3 class="text-3xl font-black text-teal-800 mb-2">تهانينا</h3>
-                <p class="text-xl font-bold text-teal-700 mb-4">لقد انتهيت من كيمياء ٢-١</p>
-                <span class="inline-block bg-white text-teal-700 px-6 py-2 rounded-full font-bold shadow-sm">استمر • وفقك الله</span>
+            <div class="mt-12 md:mt-16 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-[2rem] p-8 md:p-12 text-center shadow-xl relative overflow-hidden border border-teal-400">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPjwvc3ZnPg==')] opacity-30"></div>
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-3 relative z-10">ختام كيمياء ٢-١ 🚀</h3>
+                <p class="text-lg md:text-xl font-bold text-teal-100 mb-8 relative z-10">تأكد من استعدادك التام للمرحلة القادمة</p>
+                <button onclick="openAITutor('منهج كيمياء 2-1 كامل', 25, true)" class="relative z-10 inline-flex items-center justify-center gap-3 bg-white text-teal-800 hover:bg-teal-50 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black text-lg md:text-xl shadow-[0_10px_25px_rgba(0,0,0,0.2)] transition transform hover:-translate-y-1 hover:scale-105 w-full sm:w-auto">
+                    <i class="fa-solid fa-medal text-2xl text-yellow-500"></i> اختبار تحصيلي شامل لـ كيمياء 2-1 (25 سؤال)
+                </button>
             </div>
         </section>
 
-        <!-- ================= كيمياء 2-2 ================= -->
-        <section id="chem22" class="scroll-mt-24">
-            <div class="mb-10 text-center md:text-right">
-                <span class="section-badge bg-purple-100 text-purple-700">الصف الثاني ثانوي فصل دراسي ثاني</span>
-                <h2 class="text-4xl md:text-5xl font-heading font-black text-app-text mt-2">كيمياء ٢-٢</h2>
+        <section id="chem22" class="scroll-mt-32">
+            <div class="mb-10 md:mb-12 text-center md:text-right border-b-2 border-slate-100 pb-6">
+                <span class="section-badge bg-purple-100 text-purple-700 border border-purple-200">الصف الثاني ثانوي - الفصل الثاني</span>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-heading font-black text-slate-800 mt-3 tracking-tight">كيمياء ٢-٢</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-purple-50 text-purple-600"><i class="fa-solid fa-fire-flame-curved"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">الطاقة والتغيرات الكيميائية</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.1s;">
+                    <div class="icon-box text-purple-600"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">الطاقة والتغيرات</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem22-ch1', 'خرائط مفاهيم - الطاقة والتغيرات')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem22-ch1', 'الطاقة والتغيرات')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1Dv4t9xVhUxYE0h4j3tQIaxmXkaCwyIDP', 'شرح تجميعات - الطاقة والتغيرات')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                        <button onclick="openVideo('1JDCQg7ySvueu_l6acuPdN9HEQZi4t6ZX', 'شرح التجميعات')" class="btn-action btn-video">
+                            <i class="fa-solid fa-play"></i> شرح التجميعات
                         </button>
                         <button onclick="openAITutor('الطاقة والتغيرات الكيميائية')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -451,15 +552,12 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-purple-50 text-purple-600"><i class="fa-solid fa-stopwatch"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل سرعة التفاعل الكيميائي</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.2s;">
+                    <div class="icon-box text-purple-600"><i class="fa-solid fa-stopwatch"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">سرعة التفاعل</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem22-ch2', 'خرائط مفاهيم - سرعة التفاعل')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
-                        </button>
-                        <button onclick="openVideo('1QHfGHxzLuMdcSLnsFiXE7yLkOdjtGBvl', 'شرح تجميعات - سرعة التفاعل')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                        <button onclick="openGallery('chem22-ch2', 'سرعة التفاعل')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
                         <button onclick="openAITutor('سرعة التفاعل الكيميائي')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -467,15 +565,12 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-purple-50 text-purple-600"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل الاتزان الكيميائي</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.3s;">
+                    <div class="icon-box text-purple-600"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">الاتزان الكيميائي</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem22-ch3', 'خرائط مفاهيم - الاتزان الكيميائي')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
-                        </button>
-                        <button onclick="openVideo('1Ql_M6eAUSyh2UkzC7BKNy4GNRS843YQC', 'شرح تجميعات - الاتزان الكيميائي')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                        <button onclick="openGallery('chem22-ch3', 'الاتزان الكيميائي')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
                         <button onclick="openAITutor('الاتزان الكيميائي')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -483,70 +578,69 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-purple-50 text-purple-600"><i class="fa-solid fa-droplet"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل الهيدروكربونات</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.4s;">
+                    <div class="icon-box text-purple-600"><i class="fa-solid fa-droplet"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">الهيدروكربونات</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem22-ch4', 'خرائط مفاهيم - الهيدروكربونات')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
-                        </button>
-                        <button onclick="openVideo('1JDCQg7ySvueu_l6acuPdN9HEQZi4t6ZX', 'شرح تجميعات - الهيدروكربونات')" class="btn-action btn-video">
-                            <i class="fa-solid fa-play"></i> تشغيل الشرح
+                        <button onclick="openGallery('chem22-ch4', 'الهيدروكربونات')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
                         <button onclick="openAITutor('الهيدروكربونات')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
                         </button>
                     </div>
                 </div>
+            </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-purple-50 text-purple-600"><i class="fa-solid fa-vial-circle-check"></i></div>
-                    <h3 class="text-lg font-bold text-app-text mb-6 h-14 leading-tight">مشتقات المركبات الهيدروكربونية</h3>
+            <div class="mt-12 md:mt-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-[2rem] p-8 md:p-12 text-center shadow-xl relative overflow-hidden border border-purple-400">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPjwvc3ZnPg==')] opacity-30"></div>
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-3 relative z-10">ختام كيمياء ٢ 🏆</h3>
+                <p class="text-lg md:text-xl font-bold text-indigo-100 mb-8 relative z-10">لقد قطعت شوطاً كبيراً، أثبت جدارتك الآن!</p>
+                <button onclick="openAITutor('منهج كيمياء 2-2 كامل', 25, true)" class="relative z-10 inline-flex items-center justify-center gap-3 bg-white text-indigo-800 hover:bg-indigo-50 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black text-lg md:text-xl shadow-[0_10px_25px_rgba(0,0,0,0.2)] transition transform hover:-translate-y-1 hover:scale-105 w-full sm:w-auto">
+                    <i class="fa-solid fa-medal text-2xl text-yellow-500"></i> اختبار تحصيلي شامل لـ كيمياء 2-2 (25 سؤال)
+                </button>
+            </div>
+        </section>
+
+        <section id="chem3" class="scroll-mt-32">
+            <div class="mb-10 md:mb-12 text-center md:text-right border-b-2 border-slate-100 pb-6">
+                <span class="section-badge bg-orange-100 text-orange-700 border border-orange-200">الصف الثالث ثانوي</span>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-heading font-black text-slate-800 mt-3 tracking-tight">كيمياء ٣</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.1s;">
+                    <div class="icon-box text-orange-500"><i class="fa-solid fa-vial-circle-check"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">مشتقات الهيدروكربونات</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem22-ch5', 'خرائط مفاهيم - مشتقات المركبات')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem3-ch1', 'مشتقات الهيدروكربونات')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openAITutor('مشتقات المركبات الهيدروكربونية وتفاعلاتها')" class="btn-action btn-ai">
+                        <button onclick="openAITutor('مشتقات الهيدروكربونات وتفاعلاتها')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
                         </button>
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-purple-50 text-purple-600"><i class="fa-solid fa-leaf"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">المركبات العضوية الحيوية</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.2s;">
+                    <div class="icon-box text-orange-500"><i class="fa-solid fa-leaf"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">المركبات العضوية الحيوية</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem22-ch6', 'خرائط مفاهيم - المركبات العضوية الحيوية')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem3-ch2', 'المركبات العضوية الحيوية')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
                         <button onclick="openAITutor('المركبات العضوية الحيوية')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
                         </button>
                     </div>
                 </div>
-            </div>
 
-            <div class="mt-12 bg-purple-50 rounded-[2rem] p-10 text-center border border-purple-100">
-                <h3 class="text-3xl font-black text-purple-800 mb-2">ممتاز</h3>
-                <p class="text-xl font-bold text-purple-700 mb-4">لقد انتهيت من كيمياء ٢-٢</p>
-                <span class="inline-block bg-white text-purple-700 px-6 py-2 rounded-full font-bold shadow-sm">استمر • وفقكم الله</span>
-            </div>
-        </section>
-
-        <!-- ================= كيمياء 3 ================= -->
-        <section id="chem3" class="scroll-mt-24">
-            <div class="mb-10 text-center md:text-right">
-                <span class="section-badge bg-orange-100 text-orange-600">الصف الثالث ثانوي</span>
-                <h2 class="text-4xl md:text-5xl font-heading font-black text-app-text mt-2">كيمياء ٣</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-orange-50 text-orange-500"><i class="fa-solid fa-blender"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل المخاليط والمحاليل</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.3s;">
+                    <div class="icon-box text-orange-500"><i class="fa-solid fa-lemon"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">المخاليط والمحاليل</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem3-ch1', 'خرائط مفاهيم - المخاليط والمحاليل')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem3-ch3', 'المخاليط والمحاليل')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
                         <button onclick="openAITutor('المخاليط والمحاليل')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -554,12 +648,12 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-orange-50 text-orange-500"><i class="fa-solid fa-lemon"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل الأحماض والقواعد</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.4s;">
+                    <div class="icon-box text-orange-500"><i class="fa-solid fa-battery-half"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">الأحماض والقواعد</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem3-ch2', 'خرائط مفاهيم - الأحماض والقواعد')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem3-ch4', 'الأحماض والقواعد')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
                         <button onclick="openAITutor('الأحماض والقواعد')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
@@ -567,56 +661,77 @@
                     </div>
                 </div>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-orange-50 text-orange-500"><i class="fa-solid fa-battery-half"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل الاكسدة والاختزال</h3>
+                <div class="course-card p-6 md:p-8 flex flex-col h-full" style="animation-delay: 0.5s;">
+                    <div class="icon-box text-orange-500"><i class="fa-solid fa-car-battery"></i></div>
+                    <h3 class="text-xl md:text-2xl font-black text-slate-800 mb-6 min-h-[3.5rem] leading-snug">الأكسدة والاختزال</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem3-ch3', 'خرائط مفاهيم - الاكسدة والاختزال')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
+                        <button onclick="openGallery('chem3-ch5', 'الأكسدة والاختزال')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openAITutor('الاكسدة والاختزال')" class="btn-action btn-ai">
+                        <button onclick="openAITutor('تفاعلات الأكسدة والاختزال')" class="btn-action btn-ai">
                             <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
                         </button>
                     </div>
                 </div>
+            </div>
+            
+            <div class="mt-12 md:mt-16 bg-gradient-to-r from-amber-500 to-orange-600 rounded-[2rem] p-8 md:p-12 text-center shadow-xl relative overflow-hidden border border-orange-400">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPjwvc3ZnPg==')] opacity-30"></div>
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-3 relative z-10">ختام كيمياء ٣ 🌟</h3>
+                <button onclick="openAITutor('منهج كيمياء 3 كامل', 25, true)" class="relative z-10 inline-flex items-center justify-center gap-3 bg-white text-orange-800 hover:bg-orange-50 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black text-lg md:text-xl shadow-[0_10px_25px_rgba(0,0,0,0.2)] transition transform hover:-translate-y-1 hover:scale-105 w-full sm:w-auto mt-4">
+                    <i class="fa-solid fa-star text-2xl text-yellow-500"></i> اختبار تحصيلي كيمياء 3 (25 سؤال)
+                </button>
+            </div>
+        </section>
 
-                <div class="course-card p-6 flex flex-col">
-                    <div class="icon-box bg-orange-50 text-orange-500"><i class="fa-solid fa-car-battery"></i></div>
-                    <h3 class="text-xl font-bold text-app-text mb-6 h-14">فصل الكيمياء الكهربائية</h3>
-                    <div class="space-y-3 mt-auto">
-                        <button onclick="openGallery('chem3-ch4', 'خرائط مفاهيم - الكيمياء الكهربائية')" class="btn-action btn-map">
-                            <i class="fa-solid fa-images"></i> عرض خرائط المفاهيم
-                        </button>
-                        <button onclick="openAITutor('الكيمياء الكهربائية')" class="btn-action btn-ai">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> ✨ تدريب ذكي
-                        </button>
+        <section id="final-test" class="scroll-mt-32 pb-10">
+            <div class="mb-10 md:mb-12 text-center border-b-2 border-slate-100 pb-6">
+                <span class="section-badge bg-yellow-100 text-yellow-800 border border-yellow-300">المرحلة النهائية والمحك الحقيقي</span>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-heading font-black text-slate-800 mt-3 tracking-tight">اختبار تحصيلي الكيمياء الشامل</h2>
+            </div>
+            
+            <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[2rem] p-8 md:p-14 text-center shadow-2xl relative overflow-hidden border-2 border-yellow-500/50">
+                <div class="absolute -top-32 -right-32 w-64 h-64 bg-yellow-500 blur-[120px] opacity-30 rounded-full pointer-events-none"></div>
+                <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-yellow-500 blur-[120px] opacity-20 rounded-full pointer-events-none"></div>
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-50"></div>
+
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="w-24 h-24 bg-slate-800 rounded-full flex items-center justify-center mb-6 shadow-gold border border-yellow-500/50">
+                        <i class="fa-solid fa-crown text-5xl text-yellow-400 drop-shadow-md"></i>
                     </div>
+                    <h3 class="text-3xl md:text-5xl font-black text-white mb-4">التحدي الأكبر لجميع المقررات</h3>
+                    <p class="text-lg md:text-xl font-bold text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                        هذا الاختبار يحاكي الاختبار التحصيلي الفعلي ويشمل جميع مناهج الكيمياء للثانوية العامة (كيمياء 1، 2-1، 2-2، 3). هل أنت مستعد لإثبات جدارتك؟
+                    </p>
+
+                    <button onclick="openAITutor('اختبار تحصيلي شامل وعام لجميع مناهج ومقررات الكيمياء للمرحلة الثانوية السعودية (كيمياء 1 و 2 و 3)', 40, true)" class="inline-flex items-center justify-center gap-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-slate-900 hover:from-yellow-300 hover:to-yellow-500 px-10 py-5 md:px-12 md:py-6 rounded-2xl font-black text-xl md:text-2xl shadow-[0_15px_35px_rgba(234,179,8,0.25)] transition transform hover:-translate-y-2 hover:scale-105 w-full sm:w-auto border border-yellow-300/50">
+                        <i class="fa-solid fa-rocket text-2xl"></i> ابدأ التحدي النهائي (40 سؤال)
+                    </button>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 py-12 mt-20">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-app-muted">
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 md:py-16 mt-10 md:mt-16 text-slate-400 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <div class="w-14 h-14 md:w-16 md:h-16 bg-slate-800 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white text-2xl shadow-lg border border-slate-700">
                 <i class="fa-solid fa-graduation-cap"></i>
             </div>
-            <p class="text-app-text font-heading font-black text-xl mb-2">منصة تعليمية متكاملة للكيمياء التحصيلية</p>
-            <p class="text-app-muted font-bold mb-6">جميع الحقوق محفوظة - الأستاذ عبدالله المرواني</p>
-            <p class="text-sm text-purple-600 bg-purple-50 inline-block px-4 py-2 rounded-full font-bold">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> مدعوم بالذكاء الاصطناعي لتجربة تفاعلية
+            <p class="text-white font-heading font-black text-xl md:text-2xl mb-3">منصة تعليمية متكاملة للكيمياء التحصيلية</p>
+            <p class="font-bold mb-8 text-sm md:text-base tracking-wide">جميع الحقوق محفوظة - الأستاذ عبدالله المرواني &copy; 2026</p>
+            <p class="text-xs md:text-sm text-purple-400 bg-purple-900/30 border border-purple-800/50 inline-block px-5 py-2.5 rounded-full font-bold shadow-inner">
+                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> مدعوم بالذكاء الاصطناعي لتجربة تفاعلية
             </p>
         </div>
     </footer>
 
-    <!-- ==================== 1. VIDEO PLAYER MODAL ==================== -->
-    <div id="playerModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md hidden">
-        <div class="w-full h-full md:w-[95vw] md:h-[95vh] bg-[#0b1120] md:rounded-[2rem] shadow-2xl flex flex-col overflow-hidden border border-gray-700">
-            <div class="flex items-center justify-between px-6 py-4 bg-gray-900 border-b border-gray-700 shrink-0">
-                <h3 id="modalTitle" class="text-xl font-heading font-black text-white truncate pr-4">العنوان</h3>
-                <button onclick="closePlayer()" class="bg-gray-800 hover:bg-gray-700 text-gray-300 w-10 h-10 rounded-full flex items-center justify-center transition text-lg">
+    <div id="playerModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="modal-content w-full h-full md:w-[90vw] lg:w-[85vw] md:h-[85vh] bg-[#0b1120] md:rounded-[2rem] shadow-2xl flex flex-col overflow-hidden border border-slate-700">
+            <div class="flex items-center justify-between px-5 md:px-8 py-5 bg-slate-900 border-b border-slate-800 shrink-0">
+                <h3 id="modalTitle" class="text-lg md:text-xl font-heading font-black text-white truncate pr-2">العنوان</h3>
+                <button onclick="closePlayer()" class="bg-slate-800 hover:bg-slate-700 hover:text-red-400 text-slate-400 w-10 h-10 rounded-full flex items-center justify-center transition-colors text-lg shrink-0">
                     <i class="fa-solid fa-times"></i>
                 </button>
             </div>
@@ -629,166 +744,274 @@
         </div>
     </div>
 
-    <!-- ==================== 2. FULLSCREEN IMAGE GALLERY MODAL ==================== -->
-    <div id="galleryModal" class="modal-overlay fixed inset-0 z-50 flex-col bg-black/95 backdrop-blur-md hidden">
-        <!-- Top Bar -->
-        <div class="flex items-center justify-between p-4 md:p-6 text-white border-b border-white/10 shrink-0">
-            <h3 id="galleryTitle" class="text-lg md:text-xl font-bold truncate pr-4">خرائط المفاهيم</h3>
-            <div class="flex items-center gap-4">
-                <span id="galleryCounter" class="text-sm font-bold bg-white/20 px-3 py-1 rounded-full">1 / 1</span>
-                <button onclick="closeGallery()" class="text-2xl hover:text-red-400 transition" title="إغلاق">
-                    <i class="fa-solid fa-times"></i>
-                </button>
+    <div id="galleryModal" class="modal-overlay fixed inset-0 z-50 flex-col hidden">
+        <div class="modal-content flex-1 flex flex-col w-full h-full relative">
+            <div class="flex items-center justify-between p-5 md:p-6 text-white border-b border-white/10 shrink-0 relative z-30 bg-gradient-to-b from-black/80 to-transparent">
+                <h3 id="galleryTitle" class="text-lg md:text-2xl font-black truncate pr-2 tracking-wide text-white drop-shadow-md">خرائط المفاهيم</h3>
+                <div class="flex items-center gap-4 shrink-0">
+                    <span id="galleryCounter" class="text-sm font-black bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-sm">1 / 1</span>
+                    <button onclick="closeGallery()" class="text-2xl hover:text-red-400 transition-colors bg-white/10 hover:bg-white/20 w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20" title="إغلاق">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-        
-        <!-- Image Area -->
-        <div class="flex-1 relative flex items-center justify-center overflow-hidden p-2 md:p-8">
-            <button onclick="nextImage()" class="absolute left-4 md:left-10 z-10 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full text-white flex items-center justify-center backdrop-blur-md transition text-xl cursor-pointer">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
             
-            <img id="galleryImage" src="" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl" alt="خريطة مفاهيم">
-            
-            <button onclick="prevImage()" class="absolute right-4 md:right-10 z-10 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full text-white flex items-center justify-center backdrop-blur-md transition text-xl cursor-pointer">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
+            <div class="flex-1 relative flex items-center justify-center overflow-hidden w-full h-full">
+                <button onclick="nextImage()" class="hidden sm:flex absolute left-6 z-20 w-14 h-14 bg-white/10 hover:bg-white/30 rounded-full text-white items-center justify-center backdrop-blur-md transition-all text-xl cursor-pointer border border-white/20 hover:scale-110">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="prevImage()" class="hidden sm:flex absolute right-6 z-20 w-14 h-14 bg-white/10 hover:bg-white/30 rounded-full text-white items-center justify-center backdrop-blur-md transition-all text-xl cursor-pointer border border-white/20 hover:scale-110">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div id="galleryScrollArea" class="w-full h-full overflow-auto flex items-center justify-center p-2 relative z-10">
+                    <img id="galleryImage" src="" class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl" alt="خريطة مفاهيم">
+                </div>
+
+                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-slate-900/80 backdrop-blur-xl p-2 rounded-full z-20 shadow-2xl border border-white/10">
+                    <button onclick="zoomOut()" class="text-slate-300 hover:text-white hover:bg-white/20 w-12 h-12 rounded-full text-xl active:scale-90 transition-all flex items-center justify-center"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                    <button onclick="resetZoom()" class="text-white font-black px-4 text-base transition-colors hover:text-blue-400">100%</button>
+                    <button onclick="zoomIn()" class="text-slate-300 hover:text-white hover:bg-white/20 w-12 h-12 rounded-full text-xl active:scale-90 transition-all flex items-center justify-center"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ==================== 3. AI TUTOR MODAL ==================== -->
-    <div id="aiModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
-        <div class="w-full max-w-2xl h-auto max-h-[90vh] bg-white md:rounded-[2rem] shadow-2xl flex flex-col overflow-hidden border border-slate-200 m-4 relative">
-            
-            <div class="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-purple-50 to-indigo-50 border-b border-purple-100 shrink-0">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white flex items-center justify-center shadow-sm">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+    <div id="aiModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center hidden p-3 sm:p-4 md:p-8">
+        <div class="modal-content w-full max-w-5xl h-[95vh] md:h-[90vh] bg-[#f8fafc] rounded-3xl md:rounded-[2rem] shadow-2xl flex flex-col overflow-hidden relative border border-slate-200">
+            <div class="flex items-center justify-between px-5 sm:px-8 py-5 bg-white border-b border-slate-200 shrink-0 z-20 shadow-sm">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 text-white flex items-center justify-center shadow-md shrink-0 border border-purple-400">
+                        <i class="fa-solid fa-brain text-xl md:text-2xl"></i>
                     </div>
-                    <h3 id="aiTitle" class="text-xl font-heading font-black text-slate-800 truncate">✨ تدريب ذكي</h3>
+                    <div class="overflow-hidden">
+                        <h3 id="aiTitle" class="text-xl md:text-2xl font-heading font-black text-slate-800 truncate">✨ الاختبار التفاعلي</h3>
+                        <p class="text-sm text-purple-600 font-bold truncate mt-0.5" id="aiSubtitle">توليد مدعوم بالذكاء الاصطناعي</p>
+                    </div>
                 </div>
-                <button onclick="closeAIModal()" class="text-slate-500 hover:text-red-500 bg-white hover:bg-red-50 w-10 h-10 rounded-full flex items-center justify-center transition text-lg shadow-sm border border-slate-200">
+                <button onclick="closeAIModal()" class="text-slate-400 hover:text-red-500 bg-slate-100 hover:bg-red-50 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors text-lg md:text-xl shadow-inner border border-slate-200 shrink-0">
                     <i class="fa-solid fa-times"></i>
                 </button>
             </div>
-            
-            <div class="flex-1 overflow-y-auto p-6 md:p-8 relative min-h-[300px]">
-                <!-- Loading State -->
-                <div id="aiLoader" class="absolute inset-0 flex flex-col items-center justify-center bg-white/90 z-10 backdrop-blur-sm hidden">
-                    <i class="fa-solid fa-atom fa-spin text-5xl text-purple-500 mb-4"></i>
-                    <p class="text-purple-800 font-bold text-lg animate-pulse text-center px-4">يتم الآن توليد سؤال مخصص لك من الذكاء الاصطناعي...</p>
+            <div class="flex-1 overflow-y-auto relative bg-[#f8fafc]">
+                <div id="aiLoader" class="absolute inset-0 flex flex-col items-center justify-center bg-[#f8fafc] z-40 px-6 text-center">
+                    <div class="relative mb-8">
+                        <div class="absolute inset-0 bg-purple-400 blur-2xl opacity-20 rounded-full animate-pulse"></div>
+                        <i class="fa-solid fa-atom fa-spin text-7xl text-purple-600 relative z-10 drop-shadow-lg"></i>
+                    </div>
+                    <p class="text-slate-800 font-black text-2xl md:text-3xl mb-6">جاري إعداد الاختبار...</p>
+                    <div class="h-20 flex items-center justify-center w-full max-w-2xl mx-auto">
+                        <p id="aiMotivationalQuote" class="text-purple-700 font-black text-xl md:text-2xl leading-relaxed text-center drop-shadow-sm" style="transition: all 0.5s ease-in-out; opacity: 0; transform: translateY(15px);"></p>
+                    </div>
                 </div>
-                
-                <!-- Content State -->
-                <div id="aiContent" class="hidden h-full flex flex-col">
-                    <!-- Dynamic Question Goes Here -->
-                </div>
+                <div id="aiContent" class="hidden h-full flex flex-col relative pb-8 md:pb-12"></div>
             </div>
         </div>
     </div>
 
-    <!-- ==================== JAVASCRIPT & DATA ==================== -->
     <script>
-        // 💡 Gemini API Integration
-        const apiKey = "AIzaSyCeirqjlqxWLfeij1HlJaWWaKw4utxogvM"; // تم وضع مفتاحك هنا
-        let currentQuestionData = null;
+        const apiKey = "AIzaSyCr1tpkPVWgU3NNp9Kmf9EK5Y__IZ8a5Y0";
+        
+        let quizData = [];
+        let userAnswers = [];
+        let timerInterval = null;
+        let timeElapsed = 0;
 
-        async function openAITutor(chapterName) {
+        const motivationalQuotes = [
+            "قدها وأكثر!", "اصنع مستقبلك.", "همّة حتى القمة.", "بطل التحصيلي.", "نحو الـ +95.", 
+            "الدرجة الكاملة بانتظارك.", "تحدَّ نفسك.", "استثمر في عقلك.", "قريب من الحلم.", 
+            "الإصرار يصنع الفارق.", "التحصيلي مجرد محطة، وأنت السائق الذي يحدد الوجهة.",
+            "تعب اليوم هو راحة الغد في قاعات الجامعة التي تحلم بها.",
+            "لا تقل 'صعب'، قل 'يحتاج جهداً'، وأنت أهلٌ لهذا الجهد.",
+            "تذكر دائماً: فرحة أهلك عند صدور النتائج تستحق كل دقيقة مذاكرة.",
+            "التميز ليس فعلًا، بل عادة.. اجعل المذاكرة عادتك اليومية.",
+            "كل معلومة تفهمها الآن هي خطوة تقربك من مقعدك الجامعي.",
+            "أنت لا تذاكر لتنجح فقط، أنت تذاكر لتبني وطناً يفخر بك.",
+            "الأسئلة قد تتكرر، لكن فرصة صنع مستقبلك تأتي الآن.",
+            "اجعل هدفك المئة، ولا ترضى بما دون النجوم.",
+            "ثق بقدراتك؛ فمن وصلوا للقمة ليسوا بأفضل منك، بل كانوا أكثر صبراً.",
+            "ابدأ الآن، فالتسويف عدو الدرجات.",
+            "إذا شعرت بالتعب، تعلم أن ترتاح، لا أن تنسحب.",
+            "تذكر أن كل بطل كان يوماً مبتدئاً رفض الاستسلام.",
+            "درجتك في التحصيلي لا تحدد ذكاءك، بل تحدد مدى إصرارك.",
+            "بقي القليل، والمستقبل يستحق هذا الصمود.",
+            "أنت لست وحدك، نحن معك خطوة بخطوة حتى يوم الاختبار.",
+            "اجعل من تعبك وقوداً لنجاحك.", "عقلك مبهر، فقط امنحه الفرصة ليتألق.",
+            "القمة تتسع للجميع، لكنها ترحب بالمجتهدين أولاً.",
+            "كن أنت قصة النجاح التي يرويها الطلاب في العام القادم.",
+            "النجاح يبدأ من حيث تنتهي منطقة الراحة الخاصة بك.",
+            "خلك ذيب.. وفالك التوفيق.", "التحصيلي في جيبك مع شوية تركيز.",
+            "لا تشيل هم، التجميعات صارت أسهل معنا.", "ركز في التفاصيل، التميز يسكن هناك.",
+            "خطط، ذاكر، توكل، وانجح.", "أنت تمثل جيل الرؤية والطموح.",
+            "التحدي كبير؟ أنت أكبر!", "استمتع بالرحلة، فالتعلم متعة لا تنتهي.",
+            "كل دقيقة مذاكرة هي استثمار لمستقبلك.", "كن رقماً صعباً في نتائج هذا العام.",
+            "طموحك ليس له سقف.", "الفرصة أمامك.. فاصطدها.",
+            "اجعل درجاتك تتحدث عنك.", "نحن نؤمن بك، فهل تؤمن بنفسك؟"
+        ];
+        
+        let quoteIndex = 0;
+        let quoteInterval = null;
+
+        function startMotivationalQuotes() {
+            const quoteEl = document.getElementById('aiMotivationalQuote');
+            if(!quoteEl) return;
+            
+            quoteIndex = Math.floor(Math.random() * motivationalQuotes.length);
+            quoteEl.innerText = motivationalQuotes[quoteIndex];
+            
+            quoteEl.style.transition = 'none';
+            quoteEl.style.transform = 'translateY(15px)';
+            quoteEl.style.opacity = '0';
+            
+            void quoteEl.offsetWidth; 
+            
+            quoteEl.style.transition = 'all 0.5s ease-out';
+            quoteEl.style.opacity = '1';
+            quoteEl.style.transform = 'translateY(0)';
+            
+            clearInterval(quoteInterval);
+            quoteInterval = setInterval(() => {
+                quoteEl.style.opacity = '0';
+                quoteEl.style.transform = 'translateY(-15px)';
+                
+                setTimeout(() => {
+                    quoteIndex = Math.floor(Math.random() * motivationalQuotes.length);
+                    quoteEl.innerText = motivationalQuotes[quoteIndex];
+                    
+                    quoteEl.style.transition = 'none';
+                    quoteEl.style.transform = 'translateY(15px)';
+                    
+                    void quoteEl.offsetWidth;
+                    
+                    quoteEl.style.transition = 'all 0.5s ease-out';
+                    quoteEl.style.opacity = '1';
+                    quoteEl.style.transform = 'translateY(0)';
+                }, 500); 
+            }, 3000); 
+        }
+
+        function stopMotivationalQuotes() {
+            clearInterval(quoteInterval);
+        }
+
+        async function openAITutor(chapterName, count = 10, isComprehensive = false) {
             const modal = document.getElementById('aiModal');
             const title = document.getElementById('aiTitle');
+            const subtitle = document.getElementById('aiSubtitle');
             const content = document.getElementById('aiContent');
             const loader = document.getElementById('aiLoader');
 
-            title.innerText = `✨ تدريب ذكي - ${chapterName}`;
+            title.innerText = isComprehensive ? `🏆 اختبار تحصيلي شامل` : `✨ تدريب ذكي`;
+            subtitle.innerText = chapterName;
+            
             content.innerHTML = '';
             content.classList.add('hidden');
             loader.classList.remove('hidden');
+            
+            startMotivationalQuotes();
 
             modal.classList.remove('hidden');
             requestAnimationFrame(() => modal.classList.add('show'));
             document.body.style.overflow = 'hidden';
 
-            // النظام الذكي لاختيار النموذج (يحل مشكلة التشغيل على الجهاز المحلي)
-            const modelName = apiKey !== "" ? "gemini-1.5-flash" : "gemini-2.5-flash-preview-09-2025";
+            const modelName = "gemini-2.5-flash";
             const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
 
-            const systemPrompt = "أنت معلم كيمياء خبير متخصص في مساعدة طلاب المرحلة الثانوية في السعودية للتحضير لاختبار التحصيلي. مهمتك هي إنشاء سؤال واحد من نوع اختيار من متعدد (MCQ) يختبر فهم الطالب في فصل محدد بدقة. يجب أن يكون السؤال واضحاً، علمياً دقيقاً، وله 4 خيارات، ومرفق بشرح مبسط للإجابة الصحيحة.";
+            const systemPrompt = "أنت معلم كيمياء خبير متخصص في مساعدة طلاب المرحلة الثانوية في السعودية للتحضير لاختبار التحصيلي. مهمتك هي إنشاء اختبار يتكون من أسئلة اختيار من متعدد (MCQ) دقيقة علمياً ولا تحتمل الخطأ. يجب أن يكون لكل سؤال 4 خيارات، مع تحديد الإجابة الصحيحة وشرح مبسط لها.";
             
+            let userPromptText = `قم بإنشاء اختبار تحصيلي جديد من ${count} أسئلة اختيار من متعدد عن: ${chapterName} فقط.`;
+            if (isComprehensive) {
+                userPromptText += " تحذير هام: يجب أن تكون جميع الأسئلة حصرياً من الدروس والوحدات الخاصة بهذا المنهج فقط ولا تخرج عنها أبداً. اجعل الأسئلة شاملة ومتنوعة ومحاكية للاختبار التحصيلي الفعلي.";
+            } else {
+                userPromptText += " تحذير هام: ركز حصرياً على هذا الفصل المذكور فقط، تأكد أن الأسئلة مختلفة عن أي أسئلة سابقة ولا تخرج عنه أبداً.";
+            }
+
             const payload = {
-                contents: [{ parts: [{ text: `قم بإنشاء سؤال تدريبي عن فصل: ${chapterName}` }] }],
+                contents: [{ parts: [{ text: userPromptText }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] },
                 generationConfig: {
                     responseMimeType: "application/json",
                     responseSchema: {
-                        type: "OBJECT",
-                        properties: {
-                            question: { type: "STRING" },
-                            options: { type: "ARRAY", items: { type: "STRING" } },
-                            correctAnswer: { type: "STRING" },
-                            explanation: { type: "STRING" }
-                        },
-                        required: ["question", "options", "correctAnswer", "explanation"]
+                        type: "ARRAY",
+                        items: {
+                            type: "OBJECT",
+                            properties: {
+                                question: { type: "STRING" },
+                                options: { type: "ARRAY", items: { type: "STRING" } },
+                                correctAnswer: { type: "STRING" },
+                                explanation: { type: "STRING" }
+                            },
+                            required: ["question", "options", "correctAnswer", "explanation"]
+                        }
                     }
                 }
             };
 
             try {
-                if (apiKey === "") {
-                    throw new Error("Missing API Key");
-                }
+                if (apiKey === "") throw new Error("Missing API Key");
 
-                let result = null;
-                const delays = [1000, 2000, 4000, 8000, 16000];
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
                 
-                for (let i = 0; i < 6; i++) {
-                    try {
-                        const response = await fetch(endpoint, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        
-                        if (!response.ok) {
-                            const errData = await response.json();
-                            console.error("API Error Details:", errData);
-                            throw new Error('API Error');
-                        }
-                        result = await response.json();
-                        break;
-                    } catch (err) {
-                        if (i === 5) throw err;
-                        await new Promise(r => setTimeout(r, delays[i]));
-                    }
+                if (!response.ok) {
+                    if (response.status === 429) throw new Error('RateLimit');
+                    throw new Error('API Error');
                 }
+                
+                const result = await response.json();
+                stopMotivationalQuotes();
 
                 if (result && result.candidates) {
                     const textResponse = result.candidates[0].content.parts[0].text;
-                    const data = JSON.parse(textResponse);
-                    renderQuestion(data, chapterName);
+                    let cleanText = textResponse.trim();
+                    if (cleanText.startsWith("```json")) cleanText = cleanText.substring(7, cleanText.length - 3).trim();
+                    else if (cleanText.startsWith("```")) cleanText = cleanText.substring(3, cleanText.length - 3).trim();
+                    
+                    renderQuiz(JSON.parse(cleanText), chapterName, count, isComprehensive);
                 } else {
                     throw new Error("Invalid Response");
                 }
 
             } catch (error) {
+                stopMotivationalQuotes();
                 loader.classList.add('hidden');
                 content.classList.remove('hidden');
-                let errorMsg = "حدث خطأ أثناء الاتصال بالمساعد الذكي.";
+                
+                let errorMsg = "حدث خطأ أثناء الاتصال بالذكاء الاصطناعي.";
+                let subMsg = "تأكد من اتصالك بالإنترنت أو جرب مرة أخرى.";
+                let icon = "fa-triangle-exclamation text-red-500";
+
                 if (error.message === "Missing API Key") {
-                    errorMsg = "مفتاح الذكاء الاصطناعي مفقود! الرجاء وضع المفتاح الذي نسخته في السطر المخصص له داخل الكود (سطر 549).";
+                    errorMsg = "مفتاح الـ API مفقود أو غير صحيح!";
+                } else if (error.message === "RateLimit") {
+                    errorMsg = "يرجى الانتظار قليلاً! ⏳";
+                    subMsg = "تم إيقاف الطلب مؤقتاً لتخفيف الضغط. يرجى الانتظار لدقيقة ثم المحاولة مجدداً.";
+                    icon = "fa-hourglass-half text-orange-500";
                 }
 
                 content.innerHTML = `
-                    <div class="flex flex-col items-center justify-center text-center h-full text-red-500">
-                        <i class="fa-solid fa-triangle-exclamation text-5xl mb-4"></i>
-                        <p class="font-bold text-lg">${errorMsg}</p>
-                        <p class="text-sm mt-2 text-slate-500">تأكد من إعداد المفتاح بشكل صحيح وأن لديك اتصال بالإنترنت.</p>
-                        <button onclick="openAITutor('${chapterName}')" class="mt-6 bg-red-100 text-red-600 px-6 py-2 rounded-full font-bold hover:bg-red-200 transition">إعادة المحاولة</button>
+                    <div class="flex flex-col items-center justify-center text-center h-full p-6 md:p-10">
+                        <div class="bg-white w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center mb-8 shadow-card border border-slate-100 relative">
+                            <div class="absolute inset-0 border-4 border-red-100 rounded-full animate-ping"></div>
+                            <i class="fa-solid ${icon} text-5xl md:text-6xl z-10"></i>
+                        </div>
+                        <p class="font-black text-2xl md:text-3xl mb-4 text-slate-800">${errorMsg}</p>
+                        <p class="text-slate-500 font-bold text-base md:text-lg mb-10 max-w-md px-4 leading-relaxed">${subMsg}</p>
+                        <button onclick="openAITutor('${chapterName}', ${count}, ${isComprehensive})" class="bg-slate-800 hover:bg-slate-900 text-white px-8 py-4 md:px-10 md:py-4 rounded-2xl font-black shadow-lg transition-transform hover:-translate-y-1 text-lg">
+                            <i class="fa-solid fa-rotate-right ml-2"></i> إعادة المحاولة الآن
+                        </button>
                     </div>`;
             }
         }
 
-        function renderQuestion(data, chapterName) {
-            currentQuestionData = data;
+        function renderQuiz(data, chapterName, count, isComprehensive) {
+            quizData = data;
+            userAnswers = new Array(data.length).fill(null);
+            timeElapsed = 0;
+
             const loader = document.getElementById('aiLoader');
             const content = document.getElementById('aiContent');
             
@@ -796,215 +1019,474 @@
             content.classList.remove('hidden');
 
             let html = `
-                <div class="mb-6 flex-1">
-                    <div class="bg-indigo-50 text-indigo-800 p-4 rounded-xl mb-6 border border-indigo-100">
-                        <h4 class="text-lg md:text-xl font-bold leading-relaxed"><i class="fa-solid fa-circle-question text-indigo-400 mr-1"></i> ${data.question}</h4>
+                <div class="sticky top-0 z-30 bg-white/95 backdrop-blur-xl border-b border-slate-200 px-5 sm:px-8 py-4 md:py-5 mb-6 shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="font-black text-sm md:text-base text-indigo-700 bg-indigo-50 px-4 py-2 rounded-xl border border-indigo-100 shadow-sm">
+                            الأسئلة: ${data.length}
+                        </div>
+                        <div class="font-black text-red-600 font-mono text-base md:text-xl flex items-center gap-2 bg-red-50 px-4 py-2 rounded-xl border border-red-100 shadow-sm">
+                            <i class="fa-regular fa-clock animate-pulse"></i> <span id="quizTimer">00:00</span>
+                        </div>
                     </div>
-                    <div class="space-y-3" id="optionsContainer">
+                    <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden shadow-inner">
+                        <div id="quizProgress" class="progress-bar-fill bg-gradient-to-r from-purple-500 to-indigo-600 h-full rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6 md:space-y-8 px-5 sm:px-8" id="quizQuestionsContainer">
             `;
 
-            data.options.forEach((opt, index) => {
-                html += `<button onclick="checkAIAnswer(${index}, this)" class="w-full text-right p-4 rounded-xl border-2 border-slate-100 hover:bg-purple-50 hover:border-purple-300 transition-all text-slate-700 font-bold shadow-sm relative overflow-hidden group">
-                            <span class="relative z-10">${opt}</span>
-                        </button>`;
+            data.forEach((q, qIndex) => {
+                html += `
+                    <div class="bg-white p-5 md:p-8 rounded-3xl border border-slate-100 shadow-card" id="questionBlock_${qIndex}">
+                        <h4 class="text-lg md:text-xl font-black text-slate-800 mb-6 leading-relaxed flex items-start gap-3">
+                            <span class="bg-indigo-100 text-indigo-700 w-8 h-8 md:w-10 md:h-10 shrink-0 inline-flex items-center justify-center rounded-xl font-black text-base md:text-lg shadow-sm">${qIndex + 1}</span> 
+                            <span class="pt-1">${q.question}</span>
+                        </h4>
+                        <div class="space-y-3">
+                `;
+
+                q.options.forEach((opt, optIndex) => {
+                    html += `
+                        <button id="btn_${qIndex}_${optIndex}" onclick="selectAnswer(${qIndex}, ${optIndex}, ${data.length})" class="quiz-btn-advanced w-full text-right p-4 md:p-5 rounded-2xl border-slate-200 bg-slate-50 text-slate-700 font-bold text-base md:text-lg relative flex items-center justify-between group overflow-hidden">
+                            <span class="leading-relaxed pl-4 relative z-10">${opt}</span>
+                            <div class="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-slate-300 shrink-0 transition-colors relative z-10 bg-white" id="circle_${qIndex}_${optIndex}"></div>
+                        </button>
+                    `;
+                });
+
+                html += `
+                        </div>
+                        <div id="explanation_${qIndex}" class="hidden mt-6 p-5 rounded-2xl border shadow-inner text-base md:text-lg font-bold"></div>
+                    </div>
+                `;
             });
 
             html += `
-                    </div>
                 </div>
-                <div id="explanationDiv" class="hidden mt-4 p-5 rounded-xl border shadow-sm"></div>
-                <div class="mt-6 pt-4 border-t border-slate-100">
-                    <button id="nextQuestionBtn" onclick="openAITutor('${chapterName}')" class="hidden w-full btn-action btn-ai text-white text-lg py-3">
-                        <i class="fa-solid fa-rotate-right"></i> توليد سؤال آخر
+                <div class="mt-8 px-5 sm:px-8 pb-8 md:pb-12" id="submitContainer">
+                    <button id="submitQuizBtn" onclick="submitQuiz('${chapterName}', ${count}, ${isComprehensive})" class="w-full flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-900 text-white text-xl md:text-2xl font-black py-4 md:py-5 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-1 border border-slate-700">
+                        <i class="fa-solid fa-check-double"></i> إنهاء وتسليم الإجابات
                     </button>
                 </div>
             `;
 
             content.innerHTML = html;
+
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeElapsed++;
+                const minutes = Math.floor(timeElapsed / 60).toString().padStart(2, '0');
+                const seconds = (timeElapsed % 60).toString().padStart(2, '0');
+                const timerEl = document.getElementById('quizTimer');
+                if(timerEl) timerEl.innerText = `${minutes}:${seconds}`;
+            }, 1000);
         }
 
-        function checkAIAnswer(selectedIndex, btn) {
-            if (!currentQuestionData) return;
+        function selectAnswer(qIndex, optIndex, totalLength) {
+            userAnswers[qIndex] = quizData[qIndex].options[optIndex];
 
-            const container = document.getElementById('optionsContainer');
-            const buttons = container.querySelectorAll('button');
-            const correctText = currentQuestionData.correctAnswer;
-            const selectedText = currentQuestionData.options[selectedIndex];
-            
-            // Disable all buttons to prevent multiple guesses
-            buttons.forEach(b => {
-                b.disabled = true;
-                b.classList.remove('hover:bg-purple-50', 'hover:border-purple-300', 'cursor-pointer');
-                b.classList.add('cursor-not-allowed', 'opacity-80');
-                
-                if (b.innerText.trim() === correctText.trim()) {
-                    b.classList.remove('border-slate-100');
-                    b.classList.add('bg-green-50', 'border-green-500', 'text-green-800');
-                    b.innerHTML += ' <i class="fa-solid fa-check-circle absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-green-500"></i>';
+            const answeredCount = userAnswers.filter(a => a !== null).length;
+            const progressPercent = (answeredCount / totalLength) * 100;
+            const progressEl = document.getElementById('quizProgress');
+            if(progressEl) progressEl.style.width = `${progressPercent}%`;
+
+            for (let i = 0; i < 4; i++) {
+                const b = document.getElementById(`btn_${qIndex}_${i}`);
+                const c = document.getElementById(`circle_${qIndex}_${i}`);
+                if (b) {
+                    b.classList.remove('border-purple-500', 'bg-purple-50', 'text-purple-800');
+                    b.classList.add('border-slate-200', 'bg-slate-50', 'text-slate-700');
+                    c.classList.remove('border-purple-500', 'bg-purple-500');
+                    c.classList.add('border-slate-300');
+                }
+            }
+
+            const selectedBtn = document.getElementById(`btn_${qIndex}_${optIndex}`);
+            const selectedCircle = document.getElementById(`circle_${qIndex}_${optIndex}`);
+            if (selectedBtn) {
+                selectedBtn.classList.remove('border-slate-200', 'bg-slate-50', 'text-slate-700');
+                selectedBtn.classList.add('border-purple-500', 'bg-purple-50', 'text-purple-800');
+                selectedCircle.classList.remove('border-slate-300');
+                selectedCircle.classList.add('border-purple-500', 'bg-purple-500');
+            }
+        }
+
+        function submitQuiz(chapterName, count, isComprehensive) {
+            const answeredCount = userAnswers.filter(a => a !== null).length;
+            if (answeredCount < quizData.length) {
+                if (!confirm(`لقد أجبت على ${answeredCount} من ${quizData.length} أسئلة فقط. هل أنت متأكد من تسليم الاختبار؟`)) {
+                    return;
+                }
+            }
+
+            clearInterval(timerInterval); 
+            document.getElementById('aiContent').scrollTo({ top: 0, behavior: 'smooth' });
+
+            const minutes = Math.floor(timeElapsed / 60).toString().padStart(2, '0');
+            const seconds = (timeElapsed % 60).toString().padStart(2, '0');
+
+            let score = 0;
+
+            quizData.forEach((q, qIndex) => {
+                const userAnswer = userAnswers[qIndex];
+                const isCorrect = userAnswer && userAnswer.trim() === q.correctAnswer.trim();
+
+                if (isCorrect) score++;
+
+                q.options.forEach((opt, optIndex) => {
+                    const btn = document.getElementById(`btn_${qIndex}_${optIndex}`);
+                    const circle = document.getElementById(`circle_${qIndex}_${optIndex}`);
+                    if (!btn) return;
+
+                    btn.disabled = true;
+                    btn.classList.add('cursor-not-allowed');
+                    
+                    if (opt.trim() === q.correctAnswer.trim()) {
+                        btn.classList.remove('border-slate-200', 'border-purple-500', 'bg-purple-50', 'bg-slate-50', 'text-slate-700');
+                        btn.classList.add('bg-green-50', 'border-green-500', 'text-green-800');
+                        circle.className = 'fa-solid fa-check-circle text-green-500 text-xl md:text-2xl relative z-10 bg-white rounded-full';
+                    } else if (userAnswer && opt.trim() === userAnswer.trim() && !isCorrect) {
+                        btn.classList.remove('border-slate-200', 'border-purple-500', 'bg-purple-50', 'bg-slate-50', 'text-slate-700');
+                        btn.classList.add('bg-red-50', 'border-red-400', 'text-red-800');
+                        circle.className = 'fa-solid fa-times-circle text-red-500 text-xl md:text-2xl relative z-10 bg-white rounded-full';
+                    } else {
+                        btn.classList.add('opacity-50');
+                    }
+                });
+
+                const expDiv = document.getElementById(`explanation_${qIndex}`);
+                if (expDiv) {
+                    expDiv.classList.remove('hidden');
+                    if (isCorrect) {
+                        expDiv.classList.add('bg-green-50', 'border-green-200', 'text-green-800');
+                        expDiv.innerHTML = `<h5 class="font-black mb-2 text-lg"><i class="fa-solid fa-star text-yellow-500 ml-1"></i> إجابة صحيحة بطل!</h5><p class="leading-relaxed opacity-90">${q.explanation}</p>`;
+                    } else {
+                        expDiv.classList.add('bg-orange-50', 'border-orange-200', 'text-orange-900');
+                        let answerText = userAnswer ? "إجابة غير موفقة" : "لم تقم بالإجابة";
+                        expDiv.innerHTML = `<h5 class="font-black mb-2 text-lg"><i class="fa-solid fa-lightbulb text-orange-500 ml-1"></i> ${answerText}</h5><p class="leading-relaxed opacity-90"><strong>السبب:</strong> ${q.explanation}</p>`;
+                    }
                 }
             });
 
-            const isCorrect = (selectedText.trim() === correctText.trim());
-
-            if (!isCorrect) {
-                btn.classList.remove('border-slate-100', 'bg-green-50', 'text-green-800');
-                btn.classList.add('bg-red-50', 'border-red-500', 'text-red-800');
-                btn.innerHTML += ' <i class="fa-solid fa-times-circle absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-red-500"></i>';
-            }
-
-            const expDiv = document.getElementById('explanationDiv');
-            expDiv.classList.remove('hidden');
+            const submitContainer = document.getElementById('submitContainer');
             
-            if (isCorrect) {
-                expDiv.classList.add('bg-gradient-to-r', 'from-green-50', 'to-emerald-50', 'border-green-200');
-                expDiv.innerHTML = `<h5 class="text-green-800 font-bold mb-2 text-lg"><i class="fa-solid fa-star text-yellow-500 mr-1"></i> إجابة صحيحة، بطل!</h5><p class="text-green-700 font-medium leading-relaxed">${currentQuestionData.explanation}</p>`;
+            let percentage = (score / quizData.length) * 100;
+            let resultColor, resultIcon, resultMessage;
+            
+            if (percentage >= 90) {
+                resultColor = 'text-green-500'; resultIcon = 'fa-trophy'; resultMessage = 'ممتاز جداً! أنت جاهز تماماً للتحصيلي.';
+            } else if (percentage >= 70) {
+                resultColor = 'text-blue-500'; resultIcon = 'fa-medal'; resultMessage = 'جيد جداً! مستوى مبشر، استمر بالمراجعة.';
+            } else if (percentage >= 50) {
+                resultColor = 'text-amber-500'; resultIcon = 'fa-bell'; resultMessage = 'مقبول! ولكن القمة تحتاج للمزيد من التركيز.';
             } else {
-                expDiv.classList.add('bg-gradient-to-r', 'from-orange-50', 'to-red-50', 'border-orange-200');
-                expDiv.innerHTML = `<h5 class="text-orange-800 font-bold mb-2 text-lg"><i class="fa-solid fa-lightbulb text-orange-500 mr-1"></i> ركز في المرة القادمة!</h5><p class="text-orange-700 font-medium leading-relaxed"><strong>التفسير:</strong> ${currentQuestionData.explanation}</p>`;
+                resultColor = 'text-red-500'; resultIcon = 'fa-book-open'; resultMessage = 'لا تيأس! راجع خرائط المفاهيم وحاول مجدداً.';
             }
-
-            document.getElementById('nextQuestionBtn').classList.remove('hidden');
+            
+            submitContainer.innerHTML = `
+                <div class="bg-white p-8 md:p-12 rounded-[2rem] border-2 border-slate-100 shadow-xl text-center mt-4 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-${resultColor.split('-')[1]}-500 to-transparent"></div>
+                    <i class="fa-solid ${resultIcon} text-5xl md:text-7xl ${resultColor} mb-6 drop-shadow-md"></i>
+                    <h3 class="text-2xl md:text-3xl font-black text-slate-800 mb-3">النتيجة النهائية</h3>
+                    <p class="text-lg md:text-xl font-bold text-slate-600 mb-8">${resultMessage}</p>
+                    
+                    <div class="text-6xl md:text-7xl font-black ${resultColor} mb-8 drop-shadow-sm" dir="ltr">${score} <span class="text-3xl md:text-4xl text-slate-300">/ ${quizData.length}</span></div>
+                    
+                    <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-10">
+                        <div class="bg-slate-50 text-slate-700 font-black px-6 py-3 md:px-8 md:py-4 rounded-xl border border-slate-200 text-base md:text-lg shadow-sm flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-slate-400"></i> ${minutes}:${seconds}
+                        </div>
+                        <div class="bg-slate-50 text-slate-700 font-black px-6 py-3 md:px-8 md:py-4 rounded-xl border border-slate-200 text-base md:text-lg shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-bullseye text-slate-400"></i> ${Math.round(percentage)}%
+                        </div>
+                    </div>
+                    
+                    <button onclick="openAITutor('${chapterName}', ${count}, ${isComprehensive})" class="w-full flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-900 text-white px-6 py-4 md:px-8 md:py-5 rounded-2xl font-black transition-transform transform hover:-translate-y-1 text-lg md:text-xl shadow-lg">
+                        <i class="fa-solid fa-rotate-right"></i> إعادة الاختبار بأسئلة جديدة كلياً
+                    </button>
+                </div>
+            `;
         }
 
         function closeAIModal() {
             const modal = document.getElementById('aiModal');
             modal.classList.remove('show');
+            clearInterval(timerInterval); 
+            stopMotivationalQuotes();
             setTimeout(() => {
                 modal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
-            }, 300);
+            }, 400);
         }
 
-        // Close when clicking outside
         document.getElementById('aiModal').addEventListener('click', function(e) {
             if (e.target === this) closeAIModal();
         });
 
-
         // ---------------------------------------------------------
-        // Gallery and Player Logic
+        // Gallery Data (Combined & Complete)
         // ---------------------------------------------------------
-
         const galleryData = {
-            'chem1-ch1': ['https://i.postimg.cc/W3dn735H/image.png','https://i.postimg.cc/ZqpYvFmC/image.png','https://i.postimg.cc/Y0jJYMFC/image.png'], 
-            'chem1-ch2': ['ضع_الرابط_هنا'],
-            'chem1-ch3': ['ضع_الرابط_هنا'],
-            'chem1-ch4': ['ضع_الرابط_هنا'],
-            'chem1-ch5': ['ضع_الرابط_هنا'],
-            'chem21-ch1': ['ضع_الرابط_هنا'],
-            'chem21-ch2': ['ضع_الرابط_هنا'],
-            'chem21-ch3': ['ضع_الرابط_هنا'],
-            'chem21-ch4': ['ضع_الرابط_هنا'],
-            'chem21-ch5': ['ضع_الرابط_هنا'],
-            'chem21-ch6': ['ضع_الرابط_هنا'],
-            'chem22-ch1': ['ضع_الرابط_هنا'],
-            'chem22-ch2': ['ضع_الرابط_هنا'],
-            'chem22-ch3': ['ضع_الرابط_هنا'],
-            'chem22-ch4': ['ضع_الرابط_هنا'],
-            'chem22-ch5': ['ضع_الرابط_هنا'],
-            'chem22-ch6': ['ضع_الرابط_هنا'],
-            'chem3-ch1': ['ضع_الرابط_هنا'],
-            'chem3-ch2': ['ضع_الرابط_هنا'],
-            'chem3-ch3': ['ضع_الرابط_هنا'],
-            'chem3-ch4': ['ضع_الرابط_هنا'],
+            'chem1-ch1': [
+                'https://drive.google.com/thumbnail?id=1xc2g8SsaG-I7PyfkFyE-h_kSuK8ejC0u&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1_ZqWorL1qFZwYLtyP0G_qpPdwEEaQh6z&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1t2kaIa-F9qor1wzmv3Y4WitB3DbzsSO4&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1xEl9EH4YMglNfZ3B-Izuol_deQf5Ivq9&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1kfeKXiXicx2EB4_QPTT3zuFPMYKhoB8t&sz=w1920'
+            ],
+            'chem1-ch2': [
+                'https://drive.google.com/thumbnail?id=1wuUduS0l9gzBr5DdeUFtitzDo2v00sIQ&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1qLBaD8uiqvAjNj2CJhWDcwOLkYzwHAZ2&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1kUm_AEPogfDbjgw_tdGR8ZD__oNTLMb7&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1bsneEfFb_dS8vjo1vosE7X7m9LvRRn1b&sz=w1920'
+            ],
+            'chem1-ch3': [
+                'https://drive.google.com/thumbnail?id=1ztjS9YHCy4JP3Wf-9VRB4gcPyjpIXEwz&sz=w1920',
+                'https://drive.google.com/thumbnail?id=16um1L4XiYdLMI5LhG6xM5QZdaZNEXcPX&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1F4Jn6t-wQYuzTDug4BFkR7I2Ceu_ORLJ&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1509Md__1P5q6KNYlT9ssSZDwxh2c27D9&sz=w1920'
+            ],
+            'chem1-ch4': [
+                'https://drive.google.com/thumbnail?id=1S9bq97wjlJk0Lc8-C9Dreu-AhCgBAv7j&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1otQGh47Xyajwwf99kiBQdxJSPgpP5kBR&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1xn5VkqVCYIfs-Tf9O5jzMPslDwvqU7Oe&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1mg2VRE4nyGSxrOddZGW4wBn-HBaTlqDf&sz=w1920',
+                'https://drive.google.com/thumbnail?id=14oib1dmE4P6lS7skTz53VKYN47ocPqVT&sz=w1920'
+            ],
+            'chem1-ch5': [
+                'https://drive.google.com/thumbnail?id=1I7QoUkWpqldM8wEto335lq2Nl_wERNTK&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1R6qFNa5k_t1ganeIiA8piPh_YMlnwuXJ&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1qo-1pYXb0ChLIaz2dzzHDvY5maAWuj1l&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1ytRrFIvwHl_NtSx1XFYH-30VnxINgk8K&sz=w1920'
+            ],
+
+            'chem21-ch1': [
+                'https://drive.google.com/thumbnail?id=1tbIaGmsWejHX-rD8Y_C0gv8Z9nO5Ecya&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1ol4x0TWZLMw_86fdq3VR1hxTotSCvd7i&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1hONVbYbg7dmR2N6y2q1QrPXkGAXRclEG&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1gky2XF5XabhoH6II9ygbWETDwaQARSNU&sz=w1920'
+            ],
+            'chem21-ch2': [
+                'https://drive.google.com/thumbnail?id=1CtC0MeRjCPEYZ8GwsFP70iGRT5I1UQ2b&sz=w1920',
+                'https://drive.google.com/thumbnail?id=169To0pNrTF_9Ons-IOxLfQQRuaY7TpBh&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1zH2Jd181qQlph5Sko-FEh27shpxl6Ed1&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1U7zrJD9I9lT0DyVKSuYXo--UZVxP_mSX&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1yCmZt-pnTjAyKtGQS6cEeLTMx7ZeK6hh&sz=w1920'
+            ],
+            'chem21-ch3': [
+                'https://drive.google.com/thumbnail?id=1lWEcx0KJSVtBZlt6T_jm92tqin9wQk72&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1ZY-elhTvmBT_ry6OlOcSzETbN2RF0B92&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1SjXVtpI3Nv1P-ABH0ZR9EalaAlLBrtnm&sz=w1920'
+            ],
+            'chem21-ch4': [
+                'https://drive.google.com/thumbnail?id=1LXI60IL3HNLL8kpo_aMqHHGFhShDQ_Ea&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1KaUyptvocf8q90DBgVokEhRJk7KIw37a&sz=w1920',
+                'https://drive.google.com/thumbnail?id=14XF9WhXj3Lqphh4f0halvDzH6K2bakeO&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1hWOcEX7uxNFu1RsBxOOMTnSWNmAzOgW0&sz=w1920'
+            ],
+            'chem21-ch5': [
+                'https://drive.google.com/thumbnail?id=1t0M3ed0Snue-oDyzTfzT_RWQiWVcwObB&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1YN7LmBMZCqJ8pzVqXQeZuUxWLh5cLwNs&sz=w1920',
+                'https://drive.google.com/thumbnail?id=18EkreaNgOXKBKfU2HtTeuPuf2JiUNLPu&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1Y5qUD62AT6YSxpZ88X8zVyK4gJwhPTfc&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1WN8Qnni1CAyRZVfCszYm_63E7oy3NoIK&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1JeMgoXNNHMZ-kbpPDZ5nY_REn05cCfqt&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1VaTQLsfhaKatnv_WD9vUgeunCKeohMFc&sz=w1920',
+                'https://drive.google.com/thumbnail?id=17TgK9M5wBcFRoK_M4csUIyQKK26uUU2M&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1CREa_kBxnBzvxWixTsv8DSZuyhQibJzC&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1y8Y_3J6ip63AX0Oww-GhA6lUbAntB6dq&sz=w1920'
+            ],
+            'chem21-ch6': [
+                'https://drive.google.com/thumbnail?id=1N2CubicB-Kceae2su_kdo5-jLyJlk1JV&sz=w1920',
+                'https://drive.google.com/thumbnail?id=16_ww42J2X2T1bsVXnAH_IZmJzp293ZsJ&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1oH5XUdQ397uR6CQN1dp0EaqYJV-UYQfg&sz=w1920',
+                'https://drive.google.com/thumbnail?id=11KFeBvFc0MHShd8asRLSddlrDULXFmkO&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1wU0MRMS5CbXA8eQUqt7v5VfInIjjQDIM&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1Flf1EthSTbNxw1xq37Rz3NmYQ_F3_e3M&sz=w1920'
+            ],
+
+            'chem22-ch1': [
+                'https://drive.google.com/thumbnail?id=1s0sov0AaMCK45XuSxaz9c3XLktZSwY1_&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1OMjboM962rgXvqiwJ3rTHEEsFl1sce66&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1aokGM74I3ZdtYlkrn2Ggxy0j7c2aYknE&sz=w1920'
+            ],
+            'chem22-ch2': [
+                'https://drive.google.com/thumbnail?id=1JXD-UXGihBJTBa7rFjfl80IZ4fXp5urz&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1uED6IwLcLnR76KsaI6KxckpFEIRHN9h9&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1CFsSX-19g1OLXK5uDIDD8833hB_AcTQD&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1Sksu2GbbNp-202CbRMbUdlQLVZAWX1YT&sz=w1920'
+            ],
+            'chem22-ch3': [
+                'https://drive.google.com/thumbnail?id=11Qf_j-OYsPdCglWdpcVgGYlaHYAim7Nj&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1RIkWwe3vsZB_bI310jxTP3oIYF135aoX&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1lFUIlil8RtVUhX9GEL2IIHcN_HlaqHuZ&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1n_sF1tIIYWq6P-ZpeG-NOw9Ruxqz_Hsa&sz=w1920'
+            ],
+            'chem22-ch4': [
+                'https://drive.google.com/thumbnail?id=19sjZJFgMEoSo215E5AdDshUULKZmPbXf&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1gf6iLFqGPOWNGPIL4eKPEDz6Ci0L7aXZ&sz=w1920',
+                'https://drive.google.com/thumbnail?id=12PabIUvEDsNF2ScY4787hqIRg_4bFECG&sz=w1920'
+            ],
+
+            'chem3-ch1': [
+                'https://drive.google.com/thumbnail?id=1tGTtrcI0NQQaNM8PTPWoaPB174JkUyx1&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1v-EDUuzyqPlJ0bdJ3wtubT8OWrMSxGsV&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1gSNW7XMHu1SAeqHt-bYOGAS7tRZ6lMjM&sz=w1920',
+                'https://drive.google.com/thumbnail?id=17ogUi6kuhftkdOtixlD0saHY71dCgJ-K&sz=w1920',
+                'https://drive.google.com/thumbnail?id=118P5Qh5sOPM8v-SE5JvZJXwXTBOjjvjr&sz=w1920',
+                'https://drive.google.com/thumbnail?id=13-y9t1cRpAY9AWR5PJ6dnNEmDYi0z0Da&sz=w1920'
+            ],
+            'chem3-ch2': [
+                'https://drive.google.com/thumbnail?id=1Asy3Brmi8vp09XfVTOhuODFlHDm_NpJU&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1j0fdX9V-LHXzvk1A1M396gClgBbpR8De&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1SFWfXKfG9mFw8x66a9ZrJnlUzhuGbdRx&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1wxz5evCYwAywXum6VYGmRHmX853QmnWJ&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1vvMDyFjEDOw-pYIeHBY57A6I_piWpMjj&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1ozJKz4EujlwQtsfDSBrIVTRqqTvEV1G_&sz=w1920'
+            ],
+            'chem3-ch3': [
+                'https://drive.google.com/thumbnail?id=1EcyBWxGN8W_xyTqTOCXCcMbBBs9hvhht&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1d-hYgvfhobJqPbGKxqE2rqX8XGPPxhe1&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1y0U0_3zZfqJknESWx8r6ZDdgwU9bUce8&sz=w1920',
+                'https://drive.google.com/thumbnail?id=110RhlX3y5dBhHToYpjHTUFediiwJAwjA&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1qTcK0kVjuuDDB0nOGMv0SGvRbDaJ9PJk&sz=w1920'
+            ],
+            'chem3-ch4': [
+                'https://drive.google.com/thumbnail?id=1xurKxaNR673A-2xdy_YZDOA2fx0vTe-j&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1CuCqYItdVZ0NTegaEexmVBnV5szxxqDj&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1KtbzdVmCJea8PSJS5wz-QZKhTBel8yhH&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1V8IXGHKiZK5XKv5-MJwqG74IRr3ORpjv&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1y-gaPp48azuHyyWXXzvaPmYBij3zlOfB&sz=w1920'
+            ],
+            'chem3-ch5': [
+                'https://drive.google.com/thumbnail?id=1av6yLhThAQVPsuY8V6M9kzvu3DtSYvD1&sz=w1920',
+                'https://drive.google.com/thumbnail?id=1RzcXdluK8-L0CZW-YiwpdUe5DRqdeGSo&sz=w1920',
+                'https://drive.google.com/thumbnail?id=133h_VZ-ImVRz6BBhVhjyWQVi6VibVJOq&sz=w1920'
+            ]
         };
 
         let currentImages = [];
         let currentIndex = 0;
+        let currentZoom = 1;
 
         function openGallery(chapterId, title) {
             currentImages = galleryData[chapterId] || [];
-            if(currentImages.length === 0 || currentImages[0] === 'ضع_الرابط_هنا') {
-                alert('عذراً، لم يتم إضافة صور لهذا الفصل بعد.');
-                return;
+            if(currentImages.length === 0 || currentImages[0] === 'ضع_الرابط_هنا') { 
+                alert('عذراً، لم يتم إضافة خرائط لهذا الفصل حتى الآن.'); 
+                return; 
             }
-            
             currentIndex = 0;
             document.getElementById('galleryTitle').innerText = title;
             updateGalleryImage();
-
             const modal = document.getElementById('galleryModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            setTimeout(() => modal.classList.add('show'), 10);
+            modal.classList.remove('hidden'); modal.classList.add('flex');
+            
+            setTimeout(() => modal.classList.add('show'), 50);
             document.body.style.overflow = 'hidden';
         }
 
         function updateGalleryImage() {
+            resetZoom();
             const img = document.getElementById('galleryImage');
-            img.style.opacity = '0';
+            img.style.opacity = '0'; 
             img.style.transform = 'scale(0.95)';
-            
             setTimeout(() => {
                 img.src = currentImages[currentIndex];
                 document.getElementById('galleryCounter').innerText = `${currentIndex + 1} / ${currentImages.length}`;
-                
-                img.onload = () => {
-                    img.style.opacity = '1';
+                img.onload = () => { 
+                    img.style.opacity = '1'; 
                     img.style.transform = 'scale(1)';
                 };
-            }, 200);
+            }, 150);
         }
 
-        function nextImage() {
-            if(currentIndex < currentImages.length - 1) {
-                currentIndex++;
-                updateGalleryImage();
-            }
-        }
-
-        function prevImage() {
-            if(currentIndex > 0) {
-                currentIndex--;
-                updateGalleryImage();
-            }
-        }
+        function nextImage() { if(currentIndex < currentImages.length - 1) { currentIndex++; updateGalleryImage(); } }
+        function prevImage() { if(currentIndex > 0) { currentIndex--; updateGalleryImage(); } }
 
         function closeGallery() {
             const modal = document.getElementById('galleryModal');
             modal.classList.remove('show');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = 'auto';
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = 'auto'; }, 400);
         }
 
+        function zoomIn() { currentZoom = Math.min(4, currentZoom + 0.5); applyZoom(); }
+        function zoomOut() { currentZoom = Math.max(0.5, currentZoom - 0.5); applyZoom(); }
+        function resetZoom() { currentZoom = 1; applyZoom(); }
+        function applyZoom() {
+            const img = document.getElementById('galleryImage');
+            img.style.transform = `scale(${currentZoom})`;
+        }
+
+        const galleryScrollArea = document.getElementById('galleryScrollArea');
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let initialDistance = null;
+        let initialScale = 1;
+
+        galleryScrollArea.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 2) {
+                initialDistance = Math.hypot(
+                    e.touches[0].pageX - e.touches[1].pageX,
+                    e.touches[0].pageY - e.touches[1].pageY
+                );
+                initialScale = currentZoom;
+            } else if (e.touches.length === 1) {
+                touchStartX = e.touches[0].screenX;
+                touchStartY = e.touches[0].screenY;
+            }
+        }, { passive: false });
+
+        galleryScrollArea.addEventListener('touchmove', (e) => {
+            if (e.touches.length === 2 && initialDistance !== null) {
+                e.preventDefault(); 
+                const currentDistance = Math.hypot(
+                    e.touches[0].pageX - e.touches[1].pageX,
+                    e.touches[0].pageY - e.touches[1].pageY
+                );
+                const scaleFactor = currentDistance / initialDistance;
+                currentZoom = Math.min(Math.max(0.5, initialScale * scaleFactor), 4);
+                applyZoom();
+            }
+        }, { passive: false });
+
+        galleryScrollArea.addEventListener('touchend', (e) => {
+            if (e.changedTouches.length === 1 && currentZoom === 1 && initialDistance === null) {
+                let touchEndX = e.changedTouches[0].screenX;
+                let touchEndY = e.changedTouches[0].screenY;
+                
+                if (Math.abs(touchEndX - touchStartX) > Math.abs(touchEndY - touchStartY)) {
+                    if (touchEndX < touchStartX - 60) nextImage(); 
+                    if (touchEndX > touchStartX + 60) prevImage(); 
+                }
+            }
+            if (e.touches.length < 2) {
+                initialDistance = null;
+            }
+        });
+
+        // ---------------------------------------------------------
+        // Video Player Logic
+        // ---------------------------------------------------------
         function openVideo(sourceId, title) {
             const modal = document.getElementById('playerModal');
             const iframe = document.getElementById('playerIframe');
             const modalTitle = document.getElementById('modalTitle');
             const loader = document.getElementById('playerLoader');
-
             modalTitle.innerText = title;
-            loader.classList.remove('hidden');
-            iframe.classList.add('opacity-0');
-            
+            loader.classList.remove('hidden'); iframe.classList.add('opacity-0');
             iframe.src = `https://drive.google.com/file/d/${sourceId}/preview`;
-
-            iframe.onload = () => {
-                loader.classList.add('hidden');
-                iframe.classList.remove('opacity-0');
-                iframe.classList.add('opacity-100');
-            };
-
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            setTimeout(() => modal.classList.add('show'), 10);
+            iframe.onload = () => { loader.classList.add('hidden'); iframe.classList.remove('opacity-0'); iframe.classList.add('opacity-100'); };
+            modal.classList.remove('hidden'); modal.classList.add('flex');
+            setTimeout(() => modal.classList.add('show'), 50);
             document.body.style.overflow = 'hidden';
         }
 
         function closePlayer() {
             const modal = document.getElementById('playerModal');
             const iframe = document.getElementById('playerIframe');
-            
             modal.classList.remove('show');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                iframe.src = '';
-                document.body.style.overflow = 'auto';
-            }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); modal.classList.remove('flex'); iframe.src = ''; document.body.style.overflow = 'auto'; }, 400);
         }
 
         document.addEventListener('keydown', (e) => {
@@ -1016,6 +1498,60 @@
             if (e.key === 'ArrowLeft' && document.getElementById('galleryModal').classList.contains('show')) nextImage();
             if (e.key === 'ArrowRight' && document.getElementById('galleryModal').classList.contains('show')) prevImage();
         });
+
+        // ---------------------------------------------------------
+        // المساعد الذكي المباشر (Ask Assistant)
+        // ---------------------------------------------------------
+        async function askAssistant() {
+            const questionInput = document.getElementById('studentQuestion');
+            const responseBox = document.getElementById('chatResponse');
+            const userInput = questionInput.value.trim();
+
+            if (!userInput) return;
+
+            responseBox.classList.remove('hidden');
+            responseBox.innerHTML = '<div class="flex items-center gap-3 text-purple-700"><i class="fa-solid fa-circle-notch fa-spin text-2xl"></i> <span class="font-black text-lg">المساعد يبحث عن أدق إجابة لك...</span></div>';
+
+            const modelName = "gemini-2.5-flash";
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+
+            const systemPrompt = "أنت مساعد ذكي لمعلم الكيمياء الأستاذ عبدالله المرواني. مهمتك هي الإجابة على استفسارات الطلاب في مادة الكيمياء للمرحلة الثانوية واختبار التحصيلي بطريقة علمية، دقيقة، ومبسطة. أجب مباشرة على السؤال المطروح ولا تخرج عن سياق الكيمياء.";
+
+            const payload = {
+                contents: [{ parts: [{ text: userInput }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: { responseMimeType: "text/plain" }
+            };
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) throw new Error('API Error');
+                
+                const result = await response.json();
+                if (result && result.candidates) {
+                    let answer = result.candidates[0].content.parts[0].text;
+                    
+                    responseBox.innerHTML = `
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="pt-1">
+                                ${answer.replace(/\n/g, '<br>')}
+                            </div>
+                        </div>
+                    `;
+                    questionInput.value = ''; 
+                }
+            } catch (error) {
+                responseBox.innerHTML = '<span class="text-red-500 font-bold flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-xl"></i> حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى.</span>';
+            }
+        }
     </script>
 </body>
 </html>
