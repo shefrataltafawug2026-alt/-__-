@@ -155,22 +155,18 @@
             transform: scale(1.15) rotate(5deg);
         }
 
-        /* Chem 1 Theme */
         .theme-blue .icon-box { background: linear-gradient(135deg, #eff6ff, #dbeafe); color: #2563eb; }
         .dark .theme-blue .icon-box { background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(37,99,235,0.2)); color: #60a5fa; border: 1px solid rgba(96,165,250,0.3); }
         .theme-blue:hover { border-color: rgba(59, 130, 246, 0.3); }
 
-        /* Chem 2-1 Theme */
         .theme-teal .icon-box { background: linear-gradient(135deg, #f0fdfa, #ccfbf1); color: #0d9488; }
         .dark .theme-teal .icon-box { background: linear-gradient(135deg, rgba(20,184,166,0.1), rgba(20,184,166,0.2)); color: #2dd4bf; border: 1px solid rgba(45,212,191,0.3); }
         .theme-teal:hover { border-color: rgba(20, 184, 166, 0.3); }
 
-        /* Chem 2-2 Theme */
         .theme-purple .icon-box { background: linear-gradient(135deg, #faf5ff, #f3e8ff); color: #9333ea; }
         .dark .theme-purple .icon-box { background: linear-gradient(135deg, rgba(147,51,234,0.1), rgba(147,51,234,0.2)); color: #c084fc; border: 1px solid rgba(192,132,252,0.3); }
         .theme-purple:hover { border-color: rgba(168, 85, 247, 0.3); }
 
-        /* Chem 3 Theme */
         .theme-orange .icon-box { background: linear-gradient(135deg, #fff7ed, #ffedd5); color: #ea580c; }
         .dark .theme-orange .icon-box { background: linear-gradient(135deg, rgba(191,149,63,0.1), rgba(191,149,63,0.2)); color: #BF953F; border: 1px solid rgba(191,149,63,0.3); }
         .theme-orange:hover { border-color: rgba(249, 115, 22, 0.3); }
@@ -254,9 +250,6 @@
         .dark ::-webkit-scrollbar-thumb { background: #1F2833; border: 2px solid #0B0C10;}
         .dark ::-webkit-scrollbar-thumb:hover { background: #BF953F; }
 
-        /* ==========================================================================
-           8. CANVAS ENGINE STYLES
-           ========================================================================== */
         #chem-bg {
             position: fixed;
             top: 0;
@@ -371,7 +364,7 @@
                         <button onclick="openGallery('chem1-ch1', 'مقدمة في الكيمياء')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('13e70aJ4xuCIoI7DQOpHoRUK0Bl9Z72Yt', 'شرح مقدمة الكيمياء')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem1-ch1'], 'شرح مقدمة الكيمياء')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -384,7 +377,7 @@
                         <button onclick="openGallery('chem1-ch2', 'المادة الخواص والتغيرات')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1OGE-dsDFqdPSWgmGscBKB7ejWnEjaDjI', 'شرح المادة')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem1-ch2'], 'شرح المادة')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -397,7 +390,7 @@
                         <button onclick="openGallery('chem1-ch3', 'تركيب الذرة')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1zWIpQXS82iL7lIAgEeS_EfAGB1_EmJIL', 'شرح تركيب الذرة')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem1-ch3'], 'شرح تركيب الذرة')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -410,7 +403,7 @@
                         <button onclick="openGallery('chem1-ch4', 'التفاعلات الكيميائية')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1GgtzYJtXm15JlouFDTSY0Vq7TjL1dgNS', 'شرح التفاعلات الكيميائية')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem1-ch4'], 'شرح التفاعلات الكيميائية')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -424,10 +417,10 @@
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
                         <div class="grid grid-cols-2 gap-2">
-                            <button onclick="openVideo('1YZFQ4FRqcAZiW-YJr5Vk1jRUOZHHpqn0', 'المول - شرح 1')" class="btn-action btn-video text-xs sm:text-sm px-2">
+                            <button onclick="openVideo(videoData['chem1-ch5-v1'], 'المول - شرح 1')" class="btn-action btn-video text-xs sm:text-sm px-2">
                                 <i class="fa-solid fa-play"></i> شرح تجميعات 1
                             </button>
-                            <button onclick="openVideo('1qFCwOOjwOEqWz7DZ_f9_-5HNdZ1oM1zy', 'المول - شرح 2')" class="btn-action btn-video text-xs sm:text-sm px-2">
+                            <button onclick="openVideo(videoData['chem1-ch5-v2'], 'المول - شرح 2')" class="btn-action btn-video text-xs sm:text-sm px-2">
                                 <i class="fa-solid fa-play"></i> شرح تجميعات 2
                             </button>
                         </div>
@@ -450,7 +443,7 @@
                         <button onclick="openGallery('chem21-ch1', 'الجدول الدوري')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('14cvsQqDZ3jIVuJsQCSeht9eAnHsBeUFe', 'شرح الجدول الدوري')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem21-ch1'], 'شرح الجدول الدوري')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -464,10 +457,10 @@
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
                         <div class="flex flex-col gap-2">
-                            <button onclick="openVideo('1UOVdEfZxGQFl1h7irKXNOaZqzSOiyXE1', 'الإلكترونات - 1')" class="btn-action btn-video text-sm px-2">
+                            <button onclick="openVideo(videoData['chem21-ch2-v1'], 'الإلكترونات - 1')" class="btn-action btn-video text-sm px-2">
                                 <i class="fa-solid fa-play"></i> شرح تجميعات 1
                             </button>
-                            <button onclick="openVideo('1-xxi9fbHoAtBgu9oIYXiUqXZfh8KZZrW', 'الإلكترونات - 2')" class="btn-action btn-video text-sm px-2">
+                            <button onclick="openVideo(videoData['chem21-ch2-v2'], 'الإلكترونات - 2')" class="btn-action btn-video text-sm px-2">
                                 <i class="fa-solid fa-play"></i> شرح تجميعات 2
                             </button>
                         </div>
@@ -481,7 +474,7 @@
                         <button onclick="openGallery('chem21-ch3', 'المركبات الأيونية')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('107JpvIGB6RqXsz4cBPtzgSHPHn6hvwpp', 'شرح المركبات الأيونية')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem21-ch3'], 'شرح المركبات الأيونية')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -494,7 +487,7 @@
                         <button onclick="openGallery('chem21-ch4', 'الروابط التساهمية')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1lpbNggDBq6LKuVlaSQWBxtyocF7NbD9q', 'شرح الروابط التساهمية')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem21-ch4'], 'شرح الروابط التساهمية')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -507,7 +500,7 @@
                         <button onclick="openGallery('chem21-ch5', 'حالات المادة')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1Dv4t9xVhUxYE0h4j3tQIaxmXkaCwyIDP', 'شرح حالات المادة')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem21-ch5'], 'شرح حالات المادة')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -521,10 +514,10 @@
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
                         <div class="flex flex-col gap-2">
-                            <button onclick="openVideo('1QHfGHxzLuMdcSLnsFiXE7yLkOdjtGBvl', 'الغازات - 1')" class="btn-action btn-video text-sm px-2">
+                            <button onclick="openVideo(videoData['chem21-ch6-v1'], 'الغازات - 1')" class="btn-action btn-video text-sm px-2">
                                 <i class="fa-solid fa-play"></i> شرح تجميعات 1
                             </button>
-                            <button onclick="openVideo('1Ql_M6eAUSyh2UkzC7BKNy4GNRS843YQC', 'الغازات - 2')" class="btn-action btn-video text-sm px-2">
+                            <button onclick="openVideo(videoData['chem21-ch6-v2'], 'الغازات - 2')" class="btn-action btn-video text-sm px-2">
                                 <i class="fa-solid fa-play"></i> شرح تجميعات 2
                             </button>
                         </div>
@@ -547,7 +540,7 @@
                         <button onclick="openGallery('chem22-ch1', 'الطاقة والتغيرات')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1JDCQg7ySvueu_l6acuPdN9HEQZi4t6ZX', 'شرح الطاقة والتغيرات')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem22-ch1'], 'شرح الطاقة والتغيرات')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -560,7 +553,7 @@
                         <button onclick="openGallery('chem22-ch2', 'سرعة التفاعل')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1uED6IwLcLnR76KsaI6KxckpFEIRHN9h9', 'شرح سرعة التفاعل')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem22-ch2'], 'شرح سرعة التفاعل')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -573,7 +566,7 @@
                         <button onclick="openGallery('chem22-ch3', 'الاتزان الكيميائي')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1lFUIlil8RtVUhX9GEL2IIHcN_HlaqHuZ', 'شرح الاتزان الكيميائي')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem22-ch3'], 'شرح الاتزان الكيميائي')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -586,7 +579,7 @@
                         <button onclick="openGallery('chem22-ch4', 'الهيدروكربونات')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1gf6iLFqGPOWNGPIL4eKPEDz6Ci0L7aXZ', 'شرح الهيدروكربونات')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem22-ch4'], 'شرح الهيدروكربونات')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -609,14 +602,14 @@
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
                         <div class="flex flex-col gap-2">
-                            <button onclick="openVideo('1Qd0mzgd6H3ell7jN8dNa8QXPdZnhdBd3', 'مشتقات العضوية - 1')" class="btn-action btn-video text-sm px-2">
-                                <i class="fa-solid fa-play"></i> شرح تجميعات 1
+                            <button onclick="openVideo(videoData['chem3-ch1-v1'], 'مشتقات العضوية - ج1')" class="btn-action btn-video text-sm px-2">
+                                <i class="fa-solid fa-play"></i> شرح الجزء 1
                             </button>
-                            <button onclick="openVideo('18lVPWmbdLUHjOJZ0h4mVmwF8NxsBLFQV', 'مشتقات العضوية - 2')" class="btn-action btn-video text-sm px-2">
-                                <i class="fa-solid fa-play"></i> شرح تجميعات 2
+                            <button onclick="openVideo(videoData['chem3-ch1-v2'], 'مشتقات العضوية - ج2')" class="btn-action btn-video text-sm px-2">
+                                <i class="fa-solid fa-play"></i> شرح الجزء 2
                             </button>
-                            <button onclick="openVideo('1zaz0CenOw3oJYQKQS4c3TpgnLUO7m6Ch', 'مشتقات العضوية - 3')" class="btn-action btn-video text-sm px-2">
-                                <i class="fa-solid fa-play"></i> شرح تجميعات 3
+                            <button onclick="openVideo(videoData['chem3-ch1-v3'], 'مشتقات العضوية - ج3')" class="btn-action btn-video text-sm px-2">
+                                <i class="fa-solid fa-play"></i> شرح الجزء 3
                             </button>
                         </div>
                     </div>
@@ -629,7 +622,7 @@
                         <button onclick="openGallery('chem3-ch2', 'الكيمياء الحيوية')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1IDAmlKXHITxgvL9xt6nBfhWjn5whcLdC', 'شرح الكيمياء الحيوية')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem3-ch2'], 'شرح الكيمياء الحيوية')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -642,7 +635,7 @@
                         <button onclick="openGallery('chem3-ch3', 'المخاليط والمحاليل')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1y0U0_3zZfqJknESWx8r6ZDdgwU9bUce8', 'شرح المخاليط والمحاليل')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem3-ch3'], 'شرح المخاليط والمحاليل')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -655,7 +648,7 @@
                         <button onclick="openGallery('chem3-ch4', 'الأحماض والقواعد')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('15mktpnWoxQxq0PlE4k4EBHL0Py1kly0B', 'شرح الأحماض والقواعد')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem3-ch4'], 'شرح الأحماض والقواعد')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -668,7 +661,7 @@
                         <button onclick="openGallery('chem3-ch5', 'الأكسدة والاختزال')" class="btn-action btn-map">
                             <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
                         </button>
-                        <button onclick="openVideo('1s26f-Rlp3fGbtsHYff3Ly6jUKSR1PW-5', 'شرح الأكسدة والاختزال')" class="btn-action btn-video">
+                        <button onclick="openVideo(videoData['chem3-ch5'], 'شرح الأكسدة والاختزال')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -678,7 +671,10 @@
                     <div class="icon-box"><i class="fa-solid fa-plug"></i></div>
                     <h3 class="text-xl md:text-2xl font-black text-slate-800 dark:text-white mb-6 min-h-[3.5rem] leading-snug">الكيمياء الكهربائية</h3>
                     <div class="space-y-3 mt-auto">
-                        <button onclick="openVideo('1_DkIwjw4DwtzQTzoMhYFTGtcd8mn1lL0', 'شرح الكيمياء الكهربائية')" class="btn-action btn-video">
+                        <button onclick="openGallery('chem3-ch6', 'الكيمياء الكهربائية')" class="btn-action btn-map">
+                            <i class="fa-solid fa-images text-lg"></i> خرائط المفاهيم
+                        </button>
+                        <button onclick="openVideo(videoData['chem3-ch6'], 'شرح الكيمياء الكهربائية')" class="btn-action btn-video">
                             <i class="fa-solid fa-play text-lg"></i> شرح التجميعات
                         </button>
                     </div>
@@ -774,7 +770,6 @@
             }
         });
 
-        // Initialize Theme
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             applyTheme(true);
         } else {
@@ -804,32 +799,29 @@
         class ChemParticle {
             constructor() {
                 this.init();
-                this.y = Math.random() * canvas.height; // Distribute vertically initially
+                this.y = Math.random() * canvas.height;
             }
             
             init() {
-                this.z = Math.random() * 2 + 0.5; // Depth for parallax 3D effect (0.5 to 2.5)
+                this.z = Math.random() * 2 + 0.5;
                 this.x = Math.random() * canvas.width;
-                this.y = canvas.height + 100; // Spawn below screen
+                this.y = canvas.height + 100;
                 
-                // Slow drift based on depth
                 this.vx = (Math.random() - 0.5) * 0.5 * this.z;
-                this.vy = -(Math.random() * 0.5 + 0.2) * this.z; // Float upwards
+                this.vy = -(Math.random() * 0.5 + 0.2) * this.z;
                 
                 this.angle = Math.random() * Math.PI * 2;
                 this.spin = (Math.random() - 0.5) * 0.005;
                 this.time = Math.random() * 100;
                 
-                // Fine-tuned distribution for visual elegance
                 const r = Math.random();
-                if (r > 0.85) this.type = 'hexagon';        // 15% Benzene rings
-                else if (r > 0.70) this.type = 'atom';      // 15% Atomic orbits
-                else if (r > 0.50) this.type = 'network';   // 20% Polygonal networks
-                else if (r > 0.35) this.type = 'bubble';    // 15% Floating bubbles
-                else if (r > 0.20) this.type = 'equation';  // 15% Floating Text
-                else this.type = 'charge';                  // 20% +/- signs
+                if (r > 0.85) this.type = 'hexagon';
+                else if (r > 0.70) this.type = 'atom';
+                else if (r > 0.50) this.type = 'network';
+                else if (r > 0.35) this.type = 'bubble';
+                else if (r > 0.20) this.type = 'equation';
+                else this.type = 'charge';
                 
-                // Size mapping based on depth
                 this.size = (Math.random() * 4 + 2) * this.z;
                 this.text = equations[Math.floor(Math.random() * equations.length)];
                 this.sign = Math.random() > 0.5 ? '+' : '-';
@@ -841,19 +833,16 @@
                 this.angle += this.spin;
                 this.time += 0.05;
 
-                // Mouse Repel / Parallax Interaction
                 const dx = mouse.x - this.x;
                 const dy = mouse.y - this.y;
                 const dist = Math.sqrt(dx*dx + dy*dy);
                 
                 if (dist < 200) {
-                    // Atoms spin faster, others repel slightly based on Z-depth
                     if (this.type === 'atom') this.time += 0.15; 
                     this.x -= dx * 0.002 * this.z;
                     this.y -= dy * 0.002 * this.z;
                 }
 
-                // Screen Wrap / Respawn
                 const margin = 100;
                 if (this.x < -margin || this.x > canvas.width + margin || this.y < -margin) {
                     this.init();
@@ -865,13 +854,11 @@
                 ctx.translate(this.x, this.y);
                 if (this.type !== 'equation' && this.type !== 'charge') ctx.rotate(this.angle);
                 
-                // Very transparent (10% to 25% max based on depth)
                 const baseOpacity = isDark ? 0.25 : 0.15;
                 const opacity = baseOpacity * (this.z / 2.5);
                 
-                // High-End Colors: Gold in Dark mode, Deep Blue in Light mode
                 const strokeColor = isDark ? `rgba(191, 149, 63, ${opacity})` : `rgba(37, 99, 235, ${opacity})`;
-                const glowColor = isDark ? `rgba(138, 43, 226, 0.4)` : `rgba(59, 130, 246, 0.2)`; // Neon Purple/Blue
+                const glowColor = isDark ? `rgba(138, 43, 226, 0.4)` : `rgba(59, 130, 246, 0.2)`;
 
                 ctx.strokeStyle = strokeColor;
                 ctx.fillStyle = strokeColor;
@@ -901,7 +888,7 @@
                         const eX = Math.cos(this.time + i) * (this.size * 6);
                         const eY = Math.sin(this.time + i) * (this.size * 2);
                         ctx.beginPath(); ctx.arc(eX, eY, this.size * 0.8, 0, Math.PI * 2); 
-                        ctx.fillStyle = isDark ? `rgba(0, 229, 255, ${opacity * 4})` : strokeColor; // Neon cyan electrons
+                        ctx.fillStyle = isDark ? `rgba(0, 229, 255, ${opacity * 4})` : strokeColor; 
                         ctx.fill();
                         ctx.restore();
                     }
@@ -919,7 +906,7 @@
                     ctx.fillText(this.sign, 0, 0);
 
                 } else if (this.type === 'equation') {
-                    ctx.fillStyle = isDark ? `rgba(252, 246, 186, ${opacity * 0.8})` : strokeColor; // Bright gold text
+                    ctx.fillStyle = isDark ? `rgba(252, 246, 186, ${opacity * 0.8})` : strokeColor;
                     ctx.font = `bold ${this.size * 4}px Arial`;
                     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
                     ctx.fillText(this.text, 0, 0);
@@ -929,7 +916,6 @@
             }
         }
 
-        // Density scaling based on screen size (Max 150 particles for dense 3D feel)
         const numBgParticles = window.innerWidth > 1024 ? 120 : (window.innerWidth > 768 ? 70 : 40);
         for (let i = 0; i < numBgParticles; i++) particles.push(new ChemParticle());
 
@@ -937,7 +923,6 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             const isDark = document.documentElement.classList.contains('dark');
             
-            // Draw interactive network connections
             ctx.lineWidth = 0.5;
             for (let i = 0; i < particles.length; i++) {
                 if(particles[i].type !== 'network') continue;
@@ -966,143 +951,180 @@
            3. DATA & MODALS LOGIC
            ========================================== */
         
-        // Massive Gallery Object (100% Intact)
+        // --- روابط الفيديوهات الموحدة الدقيقة ---
+        const videoData = {
+            'chem1-ch1': '13e70aJ4xuCIoI7DQOpHoRUK0Bl9Z72Yt',
+            'chem1-ch2': '1OGE-dsDFqdPSWgmGscBKB7ejWnEjaDjI',
+            'chem1-ch3': '1zWIpQXS82iL7lIAgEeS_EfAGB1_EmJIL',
+            'chem1-ch4': '1GgtzYJtXm15JlouFDTSY0Vq7TjL1dgNS',
+            'chem1-ch5-v1': '1YZFQ4FRqcAZiW-YJr5Vk1jRUOZHHpqn0',
+            'chem1-ch5-v2': '1s2AtzFrjO2RiThEMxyEhRtFFCQFW_kJ9',
+            'chem21-ch1': '1qFCwOOjwOEqWz7DZ_f9_-5HNdZ1oM1zy',
+            'chem21-ch2-v1': '14cvsQqDZ3jIVuJsQCSeht9eAnHsBeUFe',
+            'chem21-ch2-v2': '1DW9XeO6l5NliXi3AY4hcYlWenQmAvfdn',
+            'chem21-ch3': '1UOVdEfZxGQFl1h7irKXNOaZqzSOiyXE1',
+            'chem21-ch4': '1-xxi9fbHoAtBgu9oIYXiUqXZfh8KZZrW',
+            'chem21-ch5': '107JpvIGB6RqXsz4cBPtzgSHPHn6hvwpp',
+            'chem21-ch6-v1': '1lpbNggDBq6LKuVlaSQWBxtyocF7NbD9q',
+            'chem21-ch6-v2': '1oA4Yo95Z4kz3FwQ_KD2bUK7E3tURJmf9',
+            'chem22-ch1': '1Dv4t9xVhUxYE0h4j3tQIaxmXkaCwyIDP',
+            'chem22-ch2': '1QHfGHxzLuMdcSLnsFiXE7yLkOdjtGBvl',
+            'chem22-ch3': '1Ql_M6eAUSyh2UkzC7BKNy4GNRS843YQC',
+            'chem22-ch4': '1JDCQg7ySvueu_l6acuPdN9HEQZi4t6ZX',
+            'chem3-ch1-v1': '1Qd0mzgd6H3ell7jN8dNa8QXPdZnhdBd3',
+            'chem3-ch1-v2': '18lVPWmbdLUHjOJZ0h4mVmwF8NxsBLFQV',
+            'chem3-ch1-v3': '1zaz0CenOw3oJYQKQS4c3TpgnLUO7m6Ch',
+            'chem3-ch2': '1IDAmlKXHITxgvL9xt6nBfhWjn5whcLdC',
+            'chem3-ch3': '1y0U0_3zZfqJknESWx8r6ZDdgwU9bUce8',
+            'chem3-ch4': '15mktpnWoxQxq0PlE4k4EBHL0Py1kly0B',
+            'chem3-ch5': '1s26f-Rlp3fGbtsHYff3Ly6jUKSR1PW-5',
+            'chem3-ch6': '1_DkIwjw4DwtzQTzoMhYFTGtcd8mn1lL0'
+        };
+
+        // --- روابط خرائط المفاهيم السريعة ---
         const galleryData = {
             'chem1-ch1': [
-                'https://drive.google.com/thumbnail?id=1xc2g8SsaG-I7PyfkFyE-h_kSuK8ejC0u&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1_ZqWorL1qFZwYLtyP0G_qpPdwEEaQh6z&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1t2kaIa-F9qor1wzmv3Y4WitB3DbzsSO4&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1xEl9EH4YMglNfZ3B-Izuol_deQf5Ivq9&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1kfeKXiXicx2EB4_QPTT3zuFPMYKhoB8t&sz=w1920'
+                'https://i.ibb.co/B5rgRTyV/IMG-1472.jpg',
+                'https://i.ibb.co/fJmstKP/IMG-1473.jpg',
+                'https://i.ibb.co/bMyyRPmj/IMG-1474.jpg',
+                'https://i.ibb.co/9kMG5MpT/IMG-1475.jpg',
+                'https://i.ibb.co/S44fyL6v/IMG-1476.jpg'
             ],
             'chem1-ch2': [
-                'https://drive.google.com/thumbnail?id=1wuUduS0l9gzBr5DdeUFtitzDo2v00sIQ&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1qLBaD8uiqvAjNj2CJhWDcwOLkYzwHAZ2&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1kUm_AEPogfDbjgw_tdGR8ZD__oNTLMb7&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1bsneEfFb_dS8vjo1vosE7X7m9LvRRn1b&sz=w1920'
+                'https://i.ibb.co/MxN4GYGV/IMG-1481.jpg',
+                'https://i.ibb.co/b5SnGpyT/IMG-1483.jpg',
+                'https://i.ibb.co/210mNY7Y/IMG-1484.jpg',
+                'https://i.ibb.co/xS63RZS1/IMG-1485.jpg'
             ],
             'chem1-ch3': [
-                'https://drive.google.com/thumbnail?id=1ztjS9YHCy4JP3Wf-9VRB4gcPyjpIXEwz&sz=w1920',
-                'https://drive.google.com/thumbnail?id=16um1L4XiYdLMI5LhG6xM5QZdaZNEXcPX&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1F4Jn6t-wQYuzTDug4BFkR7I2Ceu_ORLJ&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1509Md__1P5q6KNYlT9ssSZDwxh2c27D9&sz=w1920'
+                'https://i.ibb.co/xS63RZS1/IMG-1485.jpg',
+                'https://i.ibb.co/b5FSFM4R/IMG-1486.jpg',
+                'https://i.ibb.co/v47HkBz0/IMG-1487.jpg',
+                'https://i.ibb.co/3ywJ5vc1/IMG-1488.jpg'
             ],
             'chem1-ch4': [
-                'https://drive.google.com/thumbnail?id=1S9bq97wjlJk0Lc8-C9Dreu-AhCgBAv7j&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1otQGh47Xyajwwf99kiBQdxJSPgpP5kBR&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1xn5VkqVCYIfs-Tf9O5jzMPslDwvqU7Oe&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1mg2VRE4nyGSxrOddZGW4wBn-HBaTlqDf&sz=w1920',
-                'https://drive.google.com/thumbnail?id=14oib1dmE4P6lS7skTz53VKYN47ocPqVT&sz=w1920'
+                'https://i.ibb.co/svqW9q0k/IMG-1492.jpg',
+                'https://i.ibb.co/C3DctB93/IMG-1493.jpg',
+                'https://i.ibb.co/HThmympz/IMG-1494.jpg',
+                'https://i.ibb.co/HfYtXP43/IMG-1495.jpg',
+                'https://i.ibb.co/Qv5TDFb3/IMG-1496.jpg'
             ],
             'chem1-ch5': [
-                'https://drive.google.com/thumbnail?id=1I7QoUkWpqldM8wEto335lq2Nl_wERNTK&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1R6qFNa5k_t1ganeIiA8piPh_YMlnwuXJ&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1qo-1pYXb0ChLIaz2dzzHDvY5maAWuj1l&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1ytRrFIvwHl_NtSx1XFYH-30VnxINgk8K&sz=w1920'
+                'https://i.ibb.co/fdr85XBj/IMG-1497.jpg',
+                'https://i.ibb.co/0RNDZZWF/IMG-1498.jpg',
+                'https://i.ibb.co/wr2ZH55n/IMG-1499.jpg',
+                'https://i.ibb.co/tTTtKnVb/IMG-1500.jpg'
             ],
 
             'chem21-ch1': [
-                'https://drive.google.com/thumbnail?id=1tbIaGmsWejHX-rD8Y_C0gv8Z9nO5Ecya&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1ol4x0TWZLMw_86fdq3VR1hxTotSCvd7i&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1hONVbYbg7dmR2N6y2q1QrPXkGAXRclEG&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1gky2XF5XabhoH6II9ygbWETDwaQARSNU&sz=w1920'
+                'https://i.ibb.co/LDs2y2BF/IMG-1512.jpg',
+                'https://i.ibb.co/jPsZKrRC/IMG-1513.jpg',
+                'https://i.ibb.co/vCNznSTs/IMG-1514.jpg',
+                'https://i.ibb.co/WW92dHyZ/IMG-1515.jpg'
             ],
             'chem21-ch2': [
-                'https://drive.google.com/thumbnail?id=1CtC0MeRjCPEYZ8GwsFP70iGRT5I1UQ2b&sz=w1920',
-                'https://drive.google.com/thumbnail?id=169To0pNrTF_9Ons-IOxLfQQRuaY7TpBh&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1zH2Jd181qQlph5Sko-FEh27shpxl6Ed1&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1U7zrJD9I9lT0DyVKSuYXo--UZVxP_mSX&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1yCmZt-pnTjAyKtGQS6cEeLTMx7ZeK6hh&sz=w1920'
+                'https://i.ibb.co/LXpw1YSS/IMG-1504.jpg',
+                'https://i.ibb.co/JjSR1BcC/IMG-1505.jpg',
+                'https://i.ibb.co/6RJPDWQ0/IMG-1506.jpg',
+                'https://i.ibb.co/k60r27xr/IMG-1507.jpg',
+                'https://i.ibb.co/vf96hKG/IMG-1508.jpg'
             ],
             'chem21-ch3': [
-                'https://drive.google.com/thumbnail?id=1lWEcx0KJSVtBZlt6T_jm92tqin9wQk72&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1ZY-elhTvmBT_ry6OlOcSzETbN2RF0B92&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1SjXVtpI3Nv1P-ABH0ZR9EalaAlLBrtnm&sz=w1920'
+                'https://i.ibb.co/MydPBn3T/IMG-1516.jpg',
+                'https://i.ibb.co/PZGBhPxH/IMG-1517.jpg',
+                'https://i.ibb.co/Wpt03tqg/IMG-1518.jpg'
             ],
             'chem21-ch4': [
-                'https://drive.google.com/thumbnail?id=1LXI60IL3HNLL8kpo_aMqHHGFhShDQ_Ea&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1KaUyptvocf8q90DBgVokEhRJk7KIw37a&sz=w1920',
-                'https://drive.google.com/thumbnail?id=14XF9WhXj3Lqphh4f0halvDzH6K2bakeO&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1hWOcEX7uxNFu1RsBxOOMTnSWNmAzOgW0&sz=w1920'
+                'https://i.ibb.co/LzYjKvB6/IMG-1519.jpg',
+                'https://i.ibb.co/LzYjKvB6/IMG-1519.jpg',
+                'https://i.ibb.co/KZWP6xP/IMG-1520.jpg',
+                'https://i.ibb.co/pvCJBsqt/IMG-1521.jpg'
             ],
             'chem21-ch5': [
-                'https://drive.google.com/thumbnail?id=1t0M3ed0Snue-oDyzTfzT_RWQiWVcwObB&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1YN7LmBMZCqJ8pzVqXQeZuUxWLh5cLwNs&sz=w1920',
-                'https://drive.google.com/thumbnail?id=18EkreaNgOXKBKfU2HtTeuPuf2JiUNLPu&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1Y5qUD62AT6YSxpZ88X8zVyK4gJwhPTfc&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1WN8Qnni1CAyRZVfCszYm_63E7oy3NoIK&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1JeMgoXNNHMZ-kbpPDZ5nY_REn05cCfqt&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1VaTQLsfhaKatnv_WD9vUgeunCKeohMFc&sz=w1920',
-                'https://drive.google.com/thumbnail?id=17TgK9M5wBcFRoK_M4csUIyQKK26uUU2M&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1CREa_kBxnBzvxWixTsv8DSZuyhQibJzC&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1y8Y_3J6ip63AX0Oww-GhA6lUbAntB6dq&sz=w1920'
+                'https://i.ibb.co/PdNg24M/IMG-1525.jpg',
+                'https://i.ibb.co/PdNg24M/IMG-1525.jpg',
+                'https://i.ibb.co/PdNg24M/IMG-1525.jpg',
+                'https://i.ibb.co/3969h9kx/IMG-1526.jpg',
+                'https://i.ibb.co/3969h9kx/IMG-1526.jpg',
+                'https://i.ibb.co/3969h9kx/IMG-1526.jpg',
+                'https://i.ibb.co/DHZzD3bH/IMG-1527.jpg',
+                'https://i.ibb.co/Jjn6RmJm/IMG-1528.jpg',
+                'https://i.ibb.co/Jjn6RmJm/IMG-1528.jpg',
+                'https://i.ibb.co/wh6Drq9J/IMG-1529.jpg'
             ],
             'chem21-ch6': [
-                'https://drive.google.com/thumbnail?id=1N2CubicB-Kceae2su_kdo5-jLyJlk1JV&sz=w1920',
-                'https://drive.google.com/thumbnail?id=16_ww42J2X2T1bsVXnAH_IZmJzp293ZsJ&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1oH5XUdQ397uR6CQN1dp0EaqYJV-UYQfg&sz=w1920',
-                'https://drive.google.com/thumbnail?id=11KFeBvFc0MHShd8asRLSddlrDULXFmkO&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1wU0MRMS5CbXA8eQUqt7v5VfInIjjQDIM&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1Flf1EthSTbNxw1xq37Rz3NmYQ_F3_e3M&sz=w1920'
+                'https://i.ibb.co/qMYFFjLj/IMG-1530.jpg',
+                'https://i.ibb.co/rK8t9v9b/IMG-1531.jpg',
+                'https://i.ibb.co/Q30pgH53/IMG-1532.jpg',
+                'https://i.ibb.co/bM1BFBy8/IMG-1533.jpg',
+                'https://i.ibb.co/3mYjS0RY/IMG-1534.jpg',
+                'https://i.ibb.co/rG1m892m/IMG-1535.jpg'
             ],
 
             'chem22-ch1': [
-                'https://drive.google.com/thumbnail?id=1s0sov0AaMCK45XuSxaz9c3XLktZSwY1_&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1OMjboM962rgXvqiwJ3rTHEEsFl1sce66&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1aokGM74I3ZdtYlkrn2Ggxy0j7c2aYknE&sz=w1920'
+                'https://i.ibb.co/cXhLN09f/IMG-1522.jpg',
+                'https://i.ibb.co/kgRFH8fX/IMG-1523.jpg',
+                'https://i.ibb.co/chRSXp59/IMG-1524.jpg'
             ],
             'chem22-ch2': [
-                'https://drive.google.com/thumbnail?id=1JXD-UXGihBJTBa7rFjfl80IZ4fXp5urz&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1uED6IwLcLnR76KsaI6KxckpFEIRHN9h9&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1CFsSX-19g1OLXK5uDIDD8833hB_AcTQD&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1Sksu2GbbNp-202CbRMbUdlQLVZAWX1YT&sz=w1920'
+                'https://i.ibb.co/SXfsV6JS/17.png',
+                'https://i.ibb.co/604LQ3Kp/18.png',
+                'https://i.ibb.co/wZ7wg1Sc/19.png',
+                'https://i.ibb.co/SXfsV6JS/17.png'
             ],
             'chem22-ch3': [
-                'https://drive.google.com/thumbnail?id=11Qf_j-OYsPdCglWdpcVgGYlaHYAim7Nj&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1RIkWwe3vsZB_bI310jxTP3oIYF135aoX&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1lFUIlil8RtVUhX9GEL2IIHcN_HlaqHuZ&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1n_sF1tIIYWq6P-ZpeG-NOw9Ruxqz_Hsa&sz=w1920'
+                'https://i.ibb.co/rRvxtY4g/21.png',
+                'https://i.ibb.co/1GXJwFXG/22.png',
+                'https://i.ibb.co/rRvxtY4g/21.png',
+                'https://i.ibb.co/4n440Wrc/24.png'
             ],
             'chem22-ch4': [
-                'https://drive.google.com/thumbnail?id=19sjZJFgMEoSo215E5AdDshUULKZmPbXf&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1gf6iLFqGPOWNGPIL4eKPEDz6Ci0L7aXZ&sz=w1920',
-                'https://drive.google.com/thumbnail?id=12PabIUvEDsNF2ScY4787hqIRg_4bFECG&sz=w1920'
+                'https://i.ibb.co/fGN4TD1h/26.png',
+                'https://i.ibb.co/5dM0HDv/27.png',
+                'https://i.ibb.co/fGN4TD1h/26.png'
             ],
 
             'chem3-ch1': [
-                'https://drive.google.com/thumbnail?id=1tGTtrcI0NQQaNM8PTPWoaPB174JkUyx1&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1v-EDUuzyqPlJ0bdJ3wtubT8OWrMSxGsV&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1gSNW7XMHu1SAeqHt-bYOGAS7tRZ6lMjM&sz=w1920',
-                'https://drive.google.com/thumbnail?id=17ogUi6kuhftkdOtixlD0saHY71dCgJ-K&sz=w1920',
-                'https://drive.google.com/thumbnail?id=118P5Qh5sOPM8v-SE5JvZJXwXTBOjjvjr&sz=w1920',
-                'https://drive.google.com/thumbnail?id=13-y9t1cRpAY9AWR5PJ6dnNEmDYi0z0Da&sz=w1920'
+                'https://i.ibb.co/WNmcRH8t/IMG-1538.jpg',
+                'https://i.ibb.co/pmBryn8/IMG-1539.png',
+                'https://i.ibb.co/b5G5gxxC/IMG-1540.png',
+                'https://i.ibb.co/R49BZkfs/IMG-1541.png',
+                'https://i.ibb.co/jPVc6dzJ/IMG-1542.png',
+                'https://i.ibb.co/HfnnwdXJ/IMG-1543.png'
             ],
             'chem3-ch2': [
-                'https://drive.google.com/thumbnail?id=1Asy3Brmi8vp09XfVTOhuODFlHDm_NpJU&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1j0fdX9V-LHXzvk1A1M396gClgBbpR8De&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1SFWfXKfG9mFw8x66a9ZrJnlUzhuGbdRx&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1wxz5evCYwAywXum6VYGmRHmX853QmnWJ&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1vvMDyFjEDOw-pYIeHBY57A6I_piWpMjj&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1ozJKz4EujlwQtsfDSBrIVTRqqTvEV1G_&sz=w1920'
+                'https://i.ibb.co/Z6sgLBTs/IMG-1544.png',
+                'https://i.ibb.co/pvcJHWts/IMG-1545.png',
+                'https://i.ibb.co/pBCj9mLc/IMG-1546.png',
+                'https://i.ibb.co/CKJzT1RL/IMG-1547.png',
+                'https://i.ibb.co/7dSQLGk6/IMG-1548.png',
+                'https://i.ibb.co/VpD1tRSw/IMG-1549.png'
             ],
             'chem3-ch3': [
-                'https://drive.google.com/thumbnail?id=1EcyBWxGN8W_xyTqTOCXCcMbBBs9hvhht&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1d-hYgvfhobJqPbGKxqE2rqX8XGPPxhe1&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1y0U0_3zZfqJknESWx8r6ZDdgwU9bUce8&sz=w1920',
-                'https://drive.google.com/thumbnail?id=110RhlX3y5dBhHToYpjHTUFediiwJAwjA&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1qTcK0kVjuuDDB0nOGMv0SGvRbDaJ9PJk&sz=w1920'
+                'https://i.ibb.co/CZ6NSfJ/IMG-1550.png',
+                'https://i.ibb.co/4gRVMs1k/IMG-1551.png',
+                'https://i.ibb.co/sc69smR/IMG-1552.png',
+                'https://i.ibb.co/1fcS8W1k/IMG-1553.png',
+                'https://i.ibb.co/39vTypTv/IMG-1554.png'
             ],
             'chem3-ch4': [
-                'https://drive.google.com/thumbnail?id=1xurKxaNR673A-2xdy_YZDOA2fx0vTe-j&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1CuCqYItdVZ0NTegaEexmVBnV5szxxqDj&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1KtbzdVmCJea8PSJS5wz-QZKhTBel8yhH&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1V8IXGHKiZK5XKv5-MJwqG74IRr3ORpjv&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1y-gaPp48azuHyyWXXzvaPmYBij3zlOfB&sz=w1920'
+                'https://i.ibb.co/pBYZD8nH/IMG-1555.png',
+                'https://i.ibb.co/Y47t4Fgr/IMG-1556.png',
+                'https://i.ibb.co/9mDNQtGN/IMG-1557.png',
+                'https://i.ibb.co/hRxzJgQW/IMG-1558.png',
+                'https://i.ibb.co/G3FYjTF3/IMG-1559.png'
             ],
             'chem3-ch5': [
-                'https://drive.google.com/thumbnail?id=1av6yLhThAQVPsuY8V6M9kzvu3DtSYvD1&sz=w1920',
-                'https://drive.google.com/thumbnail?id=1RzcXdluK8-L0CZW-YiwpdUe5DRqdeGSo&sz=w1920',
-                'https://drive.google.com/thumbnail?id=133h_VZ-ImVRz6BBhVhjyWQVi6VibVJOq&sz=w1920'
+                'https://i.ibb.co/VY7VxGjW/IMG-1560.png',
+                'https://i.ibb.co/qYsDHkXf/IMG-1561.png',
+                'https://i.ibb.co/vvjmj51T/IMG-1562.png'
+            ],
+            'chem3-ch6': [
+                'https://i.ibb.co/B5WYbd18/IMG-1563.png',
+                'https://i.ibb.co/4k3FcHk/IMG-1564.png',
+                'https://i.ibb.co/HTzq3DJn/IMG-1565.png',
+                'https://i.ibb.co/XkJR85pL/IMG-1566.png',
+                'https://i.ibb.co/Gf4XVHnr/IMG-1567.png'
             ]
         };
 
@@ -1117,7 +1139,6 @@
             iframe.src = `https://drive.google.com/file/d/${sourceId}/preview`;
             
             modal.classList.remove('hidden');
-            // Trigger animation
             setTimeout(() => {
                 modal.classList.add('show');
                 iframe.style.opacity = 1;
@@ -1222,7 +1243,6 @@
             if (e.touches.length < 2) initialDistance = null;
         });
 
-        // Modals Keyboard control
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (document.getElementById('galleryModal').classList.contains('show')) closeGallery();
